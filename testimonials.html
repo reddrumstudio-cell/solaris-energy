@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Solaris Testimonials</title>
+<link rel="icon" href="data:,"><meta name="viewport" content="width=device-width,initial-scale=1"><style>x-dc{display:block}</style><script src="/dc-lite.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..900&amp;family=Newsreader:opsz,wght@6..72,200..800&amp;display=swap" rel="stylesheet">
+<style>
+:root{--sun:#EAA13A;--ink:#171717;--ink-2:#2A2A28;--cream:#F4F1EA;--paper:#FFFFFF;--cream-2:#E6E2D8;--gray:#D7D5CF;--teal:#287A70;--muted:#4A4843;--hair:#D7D5CF;--err:#A3231A;--ok:#1F623B;--font:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;--sh:clamp(480px,100vh,1200px);--ease:cubic-bezier(.22,1,.36,1);--pad:clamp(16px,3vw,48px);--rad:clamp(24px,5vw,80px)}
+@supports (height:100svh){:root{--sh:clamp(480px,100svh,1200px)}}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:80px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,h4,p,ul,ol,dl,dd,dt{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+img,video{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 6px var(--cream)}
+.num{font-variant-numeric:tabular-nums}
+.skip{position:absolute;left:16px;top:-80px;z-index:100;background:var(--ink);color:var(--cream);padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none}
+.skip:focus{top:12px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 28px;border-radius:999px;border:2px solid var(--ink);font:600 17px/1 var(--font);letter-spacing:-.01em;cursor:pointer;text-decoration:none;white-space:nowrap;transition:background-color .2s ease,color .2s ease,transform .18s var(--ease)}
+.btn svg{flex:none;transition:transform .3s var(--ease)}
+.btn:active{transform:scale(.97)}
+.btn-ink{background:var(--ink);color:var(--cream)}
+.btn-sun{background:var(--sun);color:var(--ink)}
+.btn-cream{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.btn-line{background:transparent;color:var(--ink)}
+.btn-line.on-ink{color:var(--cream);border-color:var(--cream)}
+@media (hover:hover) and (pointer:fine){
+.btn:hover svg{transform:translateX(5px)}
+.btn-ink:hover{background:#000}
+.btn-sun:hover{background:var(--cream)}
+.btn-cream:hover{background:var(--sun);border-color:var(--sun)}
+.btn-line:hover{background:var(--ink);color:var(--cream)}
+.btn-line.on-ink:hover{background:var(--cream);color:var(--ink)}
+}
+.btn[disabled]{background:var(--cream-2);color:#77746C;border-color:var(--hair);cursor:not-allowed;transform:none}
+.spin{animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tlink:active{transform:scale(.97)}
+.tlink{transition:transform .16s var(--ease);background:none;border:0;padding:12px 4px;min-height:44px;font:600 16px/1.2 var(--font);color:var(--ink);text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:14px var(--pad);pointer-events:none;transition:transform .65s cubic-bezier(.25,.6,.2,1),opacity .5s ease-out,visibility 0s}
+.nav.hide:focus-within{transform:none}
+.nav.hide{transform:translateY(-120%);opacity:0;visibility:hidden;transition:transform .65s cubic-bezier(.25,.6,.2,1),opacity .5s ease-out,visibility 0s .65s}
+@media (prefers-reduced-motion:reduce){.nav{transition:none}}
+.bar{pointer-events:auto;position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;min-height:52px;padding:0 8px 0 6px;border-radius:999px;box-shadow:0 0 0 1px rgba(23,23,23,.12),0 10px 28px -14px rgba(23,23,23,.22)}
+.bar::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:rgba(244,241,234,.62);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);pointer-events:none}
+.bar-l{display:flex;align-items:center;gap:2px;justify-self:start}
+.dd{position:relative}
+.dd summary{list-style:none;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border-radius:999px;font-weight:500;font-size:15px;color:var(--ink);cursor:pointer;user-select:none;transition:background-color .15s ease,transform .16s var(--ease)}
+.dd summary::-webkit-details-marker{display:none}
+.dd summary.ic{width:48px;justify-content:center;padding:0}
+.dd[open]>summary{background:rgba(23,23,23,.07)}
+.chev{transition:transform .2s var(--ease)}
+.dd[open] .chev{transform:rotate(180deg)}
+.pnl{position:absolute;left:0;top:calc(100% + 14px);min-width:232px;padding:6px;background:rgba(244,241,234,.68);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:24px;box-shadow:0 0 0 1px rgba(23,23,23,.12),0 18px 40px -18px rgba(23,23,23,.28);display:flex;flex-direction:column;transform-origin:20px 0}
+@media (prefers-reduced-motion:no-preference){.pnl{animation:pnl-in .18s var(--ease)}}
+@keyframes pnl-in{from{opacity:0;transform:translateY(-4px) scale(.98)}to{opacity:1;transform:none}}
+.pnl a:active,.dd summary:active,.bar-r:active{transform:scale(.97)}
+.pnl a{display:flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;color:var(--ink);font-size:16px;font-weight:500;text-decoration:none;transition:transform .16s var(--ease)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+.bar::before{background:rgba(244,241,234,.95)}
+.pnl{background:rgba(244,241,234,.97)}
+}
+@media (prefers-reduced-transparency:reduce){
+.bar::before{background:var(--cream);-webkit-backdrop-filter:none;backdrop-filter:none}
+.pnl{background:var(--cream);-webkit-backdrop-filter:none;backdrop-filter:none}
+}
+.bar-logo{justify-self:center;display:inline-flex;align-items:center;min-height:44px;padding:0 8px;text-decoration:none}
+.bar-logo img{height:26px;width:auto}
+.bar-r{justify-self:end;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;background:var(--sun);font-weight:500;font-size:15px;color:var(--ink);text-decoration:none;transition:transform .16s var(--ease)}
+.cta-short{display:none}
+.bar-r svg{flex:none;transition:transform .3s var(--ease)}
+@media (max-width:640px){
+.dd-ex{display:none}
+.bar-logo img{height:24px}
+.bar-r{padding:0 16px}
+.cta-long{display:none}
+.cta-short{display:inline}
+}
+
+.roll{position:relative;display:inline-block;overflow:hidden;vertical-align:top;white-space:nowrap;line-height:1.3;padding-bottom:.1em;margin-bottom:-.1em}
+.roll>i{display:block;font-style:normal}
+.roll>i+i{position:absolute;left:0;top:0;transform:translateY(110%)}
+@media (prefers-reduced-motion:no-preference){
+.roll>i{transition:transform .4s var(--ease)}
+@media (hover:hover) and (pointer:fine){
+.btn:hover .roll>i:first-child,.bar-r:hover .roll>i:first-child,.pnl a:hover .roll>i:first-child,.dd summary:hover .roll>i:first-child{transform:translateY(-110%)}
+.bar-r:hover svg{transform:translateX(4px)}
+.btn:hover .roll>i+i,.bar-r:hover .roll>i+i,.pnl a:hover .roll>i+i,.dd summary:hover .roll>i+i{transform:translateY(0)}
+}
+.btn:focus-visible .roll>i:first-child,.bar-r:focus-visible .roll>i:first-child,.pnl a:focus-visible .roll>i:first-child,.dd summary:focus-visible .roll>i:first-child{transform:translateY(-110%)}
+.btn:focus-visible .roll>i+i,.bar-r:focus-visible .roll>i+i,.pnl a:focus-visible .roll>i+i,.dd summary:focus-visible .roll>i+i{transform:translateY(0)}
+}
+/* sections */
+.sec{position:relative;padding:clamp(72px,10vw,168px) var(--pad)}
+.wrap{max-width:1440px;margin:0 auto}
+.on-sun{background:var(--sun);color:var(--ink)}
+.on-cream{background:var(--cream);color:var(--ink)}
+.on-teal{background:var(--teal);color:var(--cream)}
+.on-teal .body{color:var(--cream)}
+.on-gray{background:var(--gray);color:var(--ink)}
+.on-gray .body{color:var(--ink-2)}
+.on-gray .fine{color:var(--ink-2)}
+.on-ink{background:var(--ink);color:var(--cream)}
+.eyebrow{font-size:16px;font-weight:600;letter-spacing:.02em;margin-bottom:20px}
+.giant{font-size:clamp(52px,11.5vw,200px);line-height:.88;letter-spacing:-.06em;font-weight:600}
+.big{font-size:clamp(40px,6.6vw,112px);line-height:.94;letter-spacing:-.05em;font-weight:600;text-wrap:balance}
+.mid{font-size:clamp(30px,3.6vw,56px);line-height:1;letter-spacing:-.04em;font-weight:600;text-wrap:balance}
+.body{font-size:clamp(18px,1.5vw,22px);line-height:1.45;font-weight:500;max-width:34em}
+.on-sun .body{color:var(--ink-2)}
+.on-cream .body{color:var(--muted)}
+.on-ink .body{color:#D7D5CF}
+.fine{font-size:15px;line-height:1.5;max-width:46em}
+.on-sun .fine{color:var(--ink-2)}
+.on-cream .fine{color:var(--muted)}
+.on-ink .fine{color:#BDBAB2}
+.w{display:inline-block}
+/* reveal */
+.rv,.w{opacity:1}
+@supports (animation-timeline:view()){
+@media (prefers-reduced-motion:no-preference){
+.rv{animation:rise linear both;animation-timeline:view();animation-range:entry 4% entry 52%}
+.w{animation:rise linear both;animation-timeline:view();animation-range:entry calc(2% + var(--i,0) * 3%) entry calc(46% + var(--i,0) * 3%)}
+}
+}
+@keyframes rise{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+.fb{opacity:0;transform:translateY(28px);transition:opacity .5s var(--ease),transform .6s var(--ease);transition-delay:calc(var(--i,0) * 50ms)}
+.fb.in{opacity:1;transform:none}
+/* close */
+.close{text-align:left}
+.close-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(32px,4vw,56px)}
+
+/* footer (ported from About) */
+.foot{background:var(--ink);color:#D7D5CF;overflow:hidden;margin-top:0}
+.foot-in{max-width:80rem;margin:0 auto;padding:clamp(48px,6vw,80px) clamp(16px,4vw,64px) 0;display:grid;grid-template-columns:minmax(0,5fr) repeat(3,minmax(0,2fr));gap:40px clamp(24px,3vw,48px)}
+.foot-logo{display:block;align-self:flex-start;width:clamp(180px,22vw,264px);height:auto}
+.foot-brand{display:flex;flex-direction:column;gap:20px}
+.foot-tag{font:400 16px/1.6 var(--font);color:#E6E2D8;max-width:34ch}
+.foot-col{display:flex;flex-direction:column;gap:2px;font:400 16px/1.5 var(--font);color:#D7D5CF}
+.foot-col span{min-height:36px;display:flex;align-items:center}
+.foot-h{font:600 16px/1.4 var(--font);color:var(--cream);margin-bottom:12px}
+.foot a{display:flex;align-items:center;min-height:36px;color:#D7D5CF;text-decoration:none;text-underline-offset:4px;transition:color 160ms cubic-bezier(0.23,1,0.32,1)}
+@media (hover:hover) and (pointer:fine){.foot a:hover{color:var(--cream);text-decoration:underline}}
+.foot a:focus-visible{outline:2px solid var(--sun);outline-offset:3px;border-radius:2px;box-shadow:none}
+.foot-mark{font-family:"Newsreader","Iowan Old Style","Palatino Linotype",Georgia,serif;font-weight:300;font-size:clamp(5rem,27vw,26rem);line-height:0.74;letter-spacing:-0.04em;text-align:center;color:rgba(234,161,58,0.16);white-space:nowrap;margin-top:clamp(40px,6vw,72px);height:0.58em;overflow:hidden;user-select:none}
+@media (max-width:900px){.foot-in{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+@media (max-width:480px){.foot-in{grid-template-columns:1fr}}
+
+/* testimonials */
+.pnl a[aria-current]{background:rgba(23,23,23,.07)}
+.thead{padding-top:clamp(120px,17vh,180px);padding-bottom:clamp(40px,6vw,88px)}
+.thead-row{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,72px);align-items:end}
+.thead .big{max-width:12em}
+.thead .fine{margin-top:20px}
+.tstage{position:relative;background:var(--cream)}
+.tlist{padding:0;margin:0}
+.ts{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:20px;margin:0 var(--pad) clamp(48px,8vw,96px)}
+.tph{position:relative;overflow:hidden;aspect-ratio:4/5;border-radius:28px;background:var(--ink)}
+.tph-in,.tph img{position:absolute;inset:0;width:100%;height:100%}
+.tph img{object-fit:cover;object-position:50% 28%}
+.tplay{position:absolute;right:clamp(24px,4.5vw,72px);bottom:clamp(24px,5vh,56px);z-index:2;display:grid;place-items:center;width:clamp(52px,4.6vw,68px);height:clamp(52px,4.6vw,68px);border-radius:50%;background:var(--teal);color:#fff;pointer-events:none}
+.tplay svg{margin-left:3px;width:38%;height:38%}
+.tfig{display:none;margin:0}
+.fbox{aspect-ratio:1;border:1px solid rgba(23,23,23,.3);border-radius:14px;color:var(--ink);overflow:hidden}
+.fbox svg{display:block;width:100%;height:100%}
+.tcap{margin:0}
+.tq::before{content:"";display:block;width:32px;height:3px;border-radius:2px;background:var(--sun);margin-bottom:20px}
+.tq{margin:0;font-size:clamp(24px,2vw,32px);line-height:1.16;letter-spacing:-.03em;font-weight:600;text-wrap:pretty}
+.tw{display:flex;flex-direction:column;gap:2px;margin-top:24px;font-size:17px;line-height:1.4}
+.tw b{font-weight:600}
+.tw span{color:var(--muted);font-size:16px;text-wrap:balance}
+.tdots{display:none}
+@media (min-width:760px){
+.ts{grid-template-columns:minmax(0,58fr) minmax(0,42fr);grid-template-rows:auto 1fr;column-gap:clamp(24px,4vw,64px);margin-left:0}
+.tph{grid-row:1/3;aspect-ratio:auto;min-height:min(80vh,720px);border-radius:0 var(--rad) var(--rad) 0}
+.tfig{display:block;grid-column:2;grid-row:2;align-self:end;justify-self:end;width:clamp(200px,17vw,300px)}
+.tcap{grid-column:2;grid-row:1;align-self:start}
+}
+/* pinned, scroll-driven mode (added by script) */
+.tstage.is-pinned{height:calc(var(--sh) * 6.6);margin-bottom:clamp(120px,14vw,200px)}
+.is-pinned .tpin{position:sticky;top:0;height:var(--sh);overflow:hidden;background:var(--cream)}
+.is-pinned .tlist{position:absolute;inset:0}
+.is-pinned .ts{position:absolute;inset:0;display:block;margin:0;pointer-events:none}
+.is-pinned .tph{position:absolute;left:0;top:0;bottom:0;width:58%;min-height:0;aspect-ratio:auto;border-radius:0;clip-path:inset(var(--ct,0px) var(--cs,0px) round var(--rl,0px) var(--rr,80px) var(--rr,80px) var(--rl,0px));transform:translate3d(var(--tx,0px),0,0);will-change:transform}
+.is-pinned .ts:not(:first-child) .tph{background:transparent}
+.is-pinned .ts:not(:first-child) .tph-in{clip-path:inset(100% 0 0 0);opacity:0}
+.is-pinned .tfig{position:absolute;bottom:clamp(24px,6vh,64px);right:var(--pad);width:clamp(210px,17.4vw,300px);opacity:0}
+.is-pinned .tcap{position:absolute;left:62%;right:var(--pad);top:clamp(88px,13vh,124px);opacity:0}
+.is-pinned .tdots{position:absolute;z-index:3;left:clamp(12px,1.4vw,22px);bottom:clamp(24px,6vh,64px);display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0}
+.tdots i{display:block;width:4px;height:4px;border-radius:99px;background:rgba(255,255,255,.55);box-shadow:0 0 0 1px rgba(0,0,0,.18);transition:height .35s var(--ease),background-color .25s ease}
+.tdots i.on{height:36px;background:#fff}
+@media (prefers-reduced-motion:reduce){.w,.rv{animation:none}.btn,.btn svg,.tdots i{transition:none}}
+
+
+/* recent builds */
+.bld{padding:clamp(72px,10vw,160px) var(--pad) clamp(88px,12vw,180px)}
+.bld-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,72px);align-items:end;margin-bottom:clamp(40px,6vw,88px);max-width:1440px;margin-left:auto;margin-right:auto}
+.bld-head .big{max-width:9em}
+.bld-grid{list-style:none;padding:0;margin:0 auto;max-width:1440px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.6vw,24px)}
+.bc{margin:0}
+.bimg{position:relative;overflow:hidden;aspect-ratio:1;border-radius:28px;background:rgba(23,23,23,.24);background-image:linear-gradient(rgba(244,241,234,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(244,241,234,.09) 1px,transparent 1px);background-size:44px 44px}
+.bimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bt{display:flex;flex-direction:column;gap:6px;margin-top:20px}
+.bt::before{content:"";width:32px;height:3px;border-radius:2px;background:var(--sun);margin-bottom:12px}
+.bt b{font-size:clamp(34px,3.6vw,56px);line-height:1;letter-spacing:-.04em;font-weight:600}
+.bt span{font-size:clamp(17px,1.3vw,20px);font-weight:500}
+@media (max-width:1000px){.bld-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.bld-head{grid-template-columns:1fr}.bld-grid{grid-template-columns:1fr}}
+/* pinned sequence */
+@supports (animation-timeline:view()){
+@media (prefers-reduced-motion:no-preference) and (min-width:861px){
+.bld{padding:0}
+.bs{position:relative;height:calc(var(--sh) * 3.8);view-timeline:--bs block}
+.bpin{position:sticky;top:0;height:var(--sh);overflow:hidden;--bq:min(calc(var(--sh)*.68),46vw);--dxp:calc(16vw - 50vw + var(--bq)/2);--dxn:calc(25vw + var(--bq)/2);--dyn:calc(var(--bq)*.765)}
+.bld-head{position:absolute;left:var(--pad);right:var(--pad);top:clamp(92px,12vh,116px);margin:0;max-width:none;display:flex;justify-content:space-between;align-items:baseline;gap:24px;z-index:3}
+.bld-head .big{font-size:16px;line-height:1.4;letter-spacing:0;font-weight:600;max-width:none}
+.bld-head .fine{font-size:14px;max-width:none;margin:0;color:var(--cream);opacity:.85}
+.bld-head .rv{animation:none}
+.bld-grid,.bc{display:contents}
+.bi{position:absolute;overflow:visible;margin:0;left:calc(50% - var(--bq)/2);top:17%;width:var(--bq);height:var(--bq);transform-origin:0 0;will-change:transform,opacity;animation-timeline:--bs;animation-range:contain 0% contain 100%;animation-timing-function:linear;animation-fill-mode:both}
+.bi .bimg{position:absolute;inset:0;aspect-ratio:auto;border-radius:40px}
+.bt{will-change:transform,opacity;position:absolute;z-index:6;left:75%;top:44%;width:19%;margin:0;opacity:0;animation-timeline:--bs;animation-range:contain 0% contain 100%;animation-timing-function:linear;animation-fill-mode:both}
+.bi .bimg img{inset:auto;left:0;top:-9%;width:100%;height:118%;will-change:transform;animation:bpar linear both;animation-timeline:--bs;animation-range:contain 0% contain 100%}
+.bc:nth-child(2) .bi .bimg img{animation-name:bpar2}
+.bc:nth-child(1) .bi{z-index:1;animation-name:bi1}
+.bc:nth-child(2) .bi{z-index:2;animation-name:bi2}
+.bc:nth-child(3) .bi{z-index:3;animation-name:bi3}
+.bc:nth-child(1) .bt{animation-name:bt1}
+.bc:nth-child(2) .bt{animation-name:bt2}
+.bc:nth-child(3) .bt{animation-name:bt3}
+}
+}
+@keyframes bpar{from{transform:translateY(-6%)}to{transform:translateY(6%)}}
+@keyframes bpar2{from{transform:translateY(6%)}to{transform:translateY(-6%)}}
+@keyframes bi1{0%,15%{transform:none;opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}36%,55%{transform:translate(var(--dxp),0) scale(.235);opacity:1}70%,100%{transform:translate(var(--dxp),0) scale(.235);opacity:0}}
+@keyframes bi2{0%,19%{transform:translate(var(--dxn),var(--dyn)) scale(.235);opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}40%,59%{transform:none;opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}80%,100%{transform:translate(var(--dxp),0) scale(.235);opacity:1}}
+@keyframes bi3{0%,19%{transform:translate(var(--dxn),var(--dyn)) scale(.235);opacity:0}40%,59%{transform:translate(var(--dxn),var(--dyn)) scale(.235);opacity:1;animation-timing-function:cubic-bezier(.65,0,.35,1)}83%,100%{transform:none;opacity:1}}
+@keyframes bt1{0%,10%{opacity:1;transform:none}15%,100%{opacity:0;transform:translateY(-12px)}}
+@keyframes bt2{0%,38%{opacity:0;transform:translateY(12px)}46%,52%{opacity:1;transform:none}57%,100%{opacity:0;transform:translateY(-12px)}}
+@keyframes bt3{0%,80%{opacity:0;transform:translateY(12px)}88%,100%{opacity:1;transform:none}}
+</style>
+
+</head>
+<body>
+<x-dc>
+
+
+<div style="min-height:100%;background:var(--cream)">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="bar">
+    <div class="bar-l">
+      <details class="dd dd-menu">
+        <summary class="ic" aria-label="Menu"><svg width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M1 1.5h20"></path><path d="M1 10.5h20"></path></svg></summary>
+        <nav class="pnl" aria-label="Menu">
+          <a href="/#how">How It Works</a>
+          <a href="/about">About</a>
+          <a href="/testimonials" aria-current="page">Testimonials</a>
+          <a href="/faq">FAQs</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </details>
+      <details class="dd dd-ex">
+        <summary>Explore<svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
+        <nav class="pnl" aria-label="Explore">
+          <a href="#stories">Customer stories</a>
+          <a href="/#terms">The terms</a>
+          <a href="/#battery">Battery</a>
+          <a href="/#area">Service area</a>
+        </nav>
+      </details>
+    </div>
+    <a class="bar-logo" href="/" aria-label="Solaris home"><img src="/assets/977f0601eee76ac7468ee6c5f3ffd604.png" alt=""></a>
+    <a class="bar-r" href="/#quote"><span class="cta-long">See my estimate</span><span class="cta-short">Estimate</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+  </div>
+</header>
+
+<main id="main" tabindex="-1" style="outline:none">
+
+<section class="sec on-cream thead" aria-labelledby="h1">
+  <div class="wrap thead-row">
+    <div>
+      <p class="eyebrow rv">Testimonials</p>
+      <h1 id="h1" class="big rv">Customers, in their own words.</h1>
+    </div>
+    <div class="rv">
+      <p class="body">Every story names the system, the plan and the start month, so you can see what each customer actually has.</p>
+      <p class="fine">[Sample stories for design review, pending signed customer releases]</p>
+    </div>
+  </div>
+</section>
+
+<section id="stories" class="tstage" aria-label="Customer stories">
+  <div class="tpin">
+    <ol class="tlist">
+      <li class="ts">
+        <div class="tph"><div class="tph-in"><img src="/assets/2bce14d25aad77ae383132c34f7eaf61.jpg" alt="Portrait of Marcus, a Solaris customer in Orlando" width="962" height="1018"><span class="tplay" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.6-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></span></div></div>
+        <figure class="tfig" aria-hidden="true"><div class="fbox"><svg viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M231,254L237,251L238,252L233,254ZM211,258L213,255L215,254L217,253L218,252L222,250L226,252L226,254L228,255L227,255L223,256L223,256L220,256L219,256L214,259L211,259ZM197,187L198,188L200,194L200,195L202,196L203,195L205,196L203,197L202,197L200,195L199,194L198,191L197,189ZM115,40L116,42L117,44L117,46L118,49L119,50L134,51L162,53L184,54L199,55L198,56L198,57L199,58L199,60L200,62L204,62L204,60L204,58L205,55L204,52L204,50L204,49L205,48L204,48L206,48L207,46L208,46L209,47L211,47L213,48L213,49L217,50L219,50L220,50L222,50L222,51L222,54L222,57L222,57L223,58L223,61L223,64L226,76L227,80L227,81L230,90L234,99L237,105L244,118L248,123L248,125L249,128L247,129L247,131L247,134L247,137L248,140L250,144L253,152L255,157L256,160L256,160L257,164L259,169L260,171L261,173L262,177L264,184L264,191L263,196L263,202L262,203L261,211L261,216L261,218L260,221L260,222L260,221L260,220L259,219L258,220L257,223L256,223L256,225L255,226L255,229L255,229L255,231L256,231L255,233L254,233L254,235L256,233L259,228L260,227L260,228L259,230L255,237L254,239L252,242L248,246L245,247L245,247L249,244L250,242L251,241L251,239L252,238L251,237L250,237L249,237L249,237L245,238L244,239L243,239L241,238L239,238L238,239L235,240L233,240L231,239L230,237L230,234L231,233L231,233L231,231L230,229L229,227L229,226L228,225L227,224L226,221L226,221L224,221L224,218L221,217L221,217L219,216L216,214L215,215L214,216L213,212L211,208L210,203L210,200L209,198L206,195L205,195L205,193L203,192L203,194L202,195L202,193L201,189L200,188L200,187L201,187L202,188L203,184L203,181L202,181L202,180L203,180L203,179L201,179L201,180L200,180L201,184L200,185L197,185L197,187L197,184L196,183L194,180L192,175L191,172L189,168L186,164L184,162L184,161L183,159L184,160L184,160L186,160L187,157L188,157L189,154L191,153L190,152L192,151L193,149L193,147L190,146L191,149L188,149L189,148L189,146L188,145L184,142L184,144L183,145L184,146L186,146L187,150L186,151L186,153L186,153L184,154L183,155L184,156L183,157L183,155L183,153L181,151L180,150L179,148L180,143L180,141L179,136L180,136L180,139L181,141L182,142L181,137L182,136L182,135L183,133L183,132L184,131L184,130L185,128L185,126L185,123L185,121L185,120L184,119L184,118L183,114L184,113L182,109L182,108L182,107L180,107L181,106L181,104L180,104L175,103L174,105L173,105L172,102L173,101L171,100L170,99L170,97L169,96L168,94L166,94L166,93L163,92L163,88L163,86L161,86L160,85L159,84L157,83L157,81L156,80L156,79L154,77L151,76L147,73L144,71L143,71L140,72L137,71L137,72L134,75L135,77L135,78L134,79L132,78L131,77L129,78L126,80L119,84L118,84L119,83L118,82L117,83L115,85L111,85L113,86L113,87L115,88L118,86L121,85L124,83L124,83L122,85L119,87L115,89L114,89L113,88L111,87L108,86L106,86L104,87L103,84L103,80L103,79L103,82L104,85L105,86L106,84L106,81L104,78L102,77L100,76L99,75L97,73L94,71L92,69L87,67L82,64L76,62L73,62L66,61L62,61L57,62L50,63L47,64L46,64L39,65L41,64L40,64L41,63L42,61L44,60L42,58L42,57L43,53L43,51L39,49L39,48L36,45L36,45L37,41L37,40L55,40L69,40L88,40L100,40L108,40Z" vector-effect="non-scaling-stroke" stroke-opacity=".2"/><circle cx="223.6" cy="125.1" r="11" stroke-width="1.25" vector-effect="non-scaling-stroke"/><circle cx="223.6" cy="125.1" r="4.5" fill="#EAA13A" stroke="none"/></svg></div></figure>
+        <figure class="tcap" aria-label="Customer story 1 of 6" id="story-1">
+          <blockquote class="tq">“I saw my price before I shared my number. The install took two days and there was no loan or lien.”</blockquote>
+          <figcaption class="tw"><b>Marcus</b><span>Orlando · 8.4 kW solar, started March 2025</span></figcaption>
+        </figure>
+      </li>
+      <li class="ts">
+        <div class="tph"><div class="tph-in"><img src="/assets/5fecaeb71cff129750d37da76f9947b9.jpg" alt="Portrait of Elena, a Solaris customer in Austin" width="962" height="1018" decoding="async"><span class="tplay" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.6-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></span></div></div>
+        <figure class="tfig" aria-hidden="true"><div class="fbox"><svg viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M99,42L112,42L123,42L133,42L144,42L151,42L151,83L153,83L155,85L156,87L158,87L159,86L160,86L161,87L162,87L162,85L163,86L164,86L164,87L165,88L165,90L167,90L167,91L167,90L168,91L169,90L170,91L171,91L172,91L173,92L174,92L175,91L176,92L178,93L179,93L179,92L180,91L181,92L182,92L183,92L184,91L185,92L184,93L185,95L186,95L187,95L187,95L187,96L187,96L187,97L187,97L188,98L189,98L191,96L192,95L192,95L193,96L193,96L194,97L195,96L196,97L196,98L196,98L197,99L198,97L198,97L199,98L199,97L200,96L200,97L201,98L200,99L201,100L201,101L202,100L202,99L203,99L202,98L203,98L204,97L204,96L204,96L205,96L205,96L206,97L206,98L206,97L207,98L208,98L209,98L209,97L211,97L210,98L211,99L212,98L212,99L213,99L215,101L215,101L215,101L216,100L217,100L218,100L218,98L219,98L219,98L220,98L222,98L222,97L224,98L224,98L225,98L225,97L226,97L228,96L228,96L229,97L230,97L230,97L232,97L233,97L234,97L234,96L236,96L237,98L239,98L239,99L241,100L241,100L242,100L243,101L244,101L244,102L245,101L247,103L247,102L248,102L248,103L248,104L249,103L249,104L249,104L250,104L250,104L250,104L252,104L252,103L253,104L253,104L254,104L255,104L255,104L255,104L255,115L255,136L255,137L256,138L257,138L258,140L259,141L259,141L259,142L259,143L259,144L258,144L259,145L259,146L260,146L260,147L260,147L261,148L261,148L261,148L261,149L261,150L262,151L262,151L263,153L264,153L263,155L264,155L264,156L263,156L263,157L264,158L263,158L263,159L263,160L263,161L262,162L262,163L261,163L261,165L260,165L260,166L261,166L261,168L260,169L260,170L261,171L261,172L260,172L261,174L260,175L261,175L260,176L259,177L259,178L258,180L257,180L257,181L257,181L258,183L258,183L256,183L253,184L245,187L244,188L243,189L242,189L243,188L244,187L245,187L245,187L246,186L246,186L247,186L246,185L243,186L242,186L243,184L244,183L244,182L243,181L242,181L241,182L241,182L241,183L240,184L239,183L238,183L238,184L239,185L238,186L239,186L240,187L239,188L240,188L240,189L240,190L240,191L239,191L238,192L237,193L236,193L236,193L235,194L236,195L237,194L238,193L238,193L240,191L241,191L241,190L243,190L242,191L238,194L236,195L236,195L234,197L232,199L231,199L226,202L224,203L221,205L217,207L215,208L214,209L213,210L210,212L208,213L205,216L203,218L203,220L202,221L200,224L198,228L198,230L197,233L197,235L197,237L197,240L198,243L199,246L200,249L201,254L200,253L200,251L199,247L199,245L197,245L198,244L198,243L197,241L197,240L197,238L197,236L197,234L197,229L198,226L199,224L200,222L201,221L201,220L201,220L202,218L203,217L204,217L205,215L207,214L207,213L208,213L210,211L212,210L213,210L213,209L214,208L213,208L212,209L211,209L210,210L209,210L209,210L209,208L208,208L207,209L207,210L207,211L207,211L207,212L206,213L205,214L204,214L203,213L203,213L201,214L200,215L201,215L203,214L203,216L203,216L200,220L200,220L199,219L198,219L198,219L196,219L195,219L195,219L195,220L196,220L197,220L197,221L197,221L198,222L199,222L198,225L197,228L196,230L195,230L195,231L194,230L195,230L195,229L195,229L194,229L192,231L193,231L194,231L196,231L196,231L196,233L196,233L196,236L195,240L195,240L196,244L196,245L196,246L197,246L198,250L199,250L198,251L198,251L198,253L199,254L200,254L200,254L201,254L201,256L200,256L199,256L199,257L197,257L197,258L196,258L195,258L194,258L194,257L193,257L192,255L190,255L190,254L189,254L188,254L187,254L186,254L186,254L185,255L185,254L184,254L183,254L183,254L182,254L181,253L182,253L181,253L180,252L179,252L178,251L178,251L176,250L175,251L174,250L173,249L172,249L172,248L172,248L171,248L169,248L169,248L168,247L167,248L167,247L167,246L167,245L166,245L166,243L165,243L165,241L165,241L165,240L164,239L163,238L163,238L162,237L162,237L162,236L162,236L161,236L161,235L161,234L161,233L161,233L161,231L160,231L160,230L159,230L160,229L160,228L160,227L160,226L160,226L160,225L159,224L159,224L158,223L158,224L157,223L157,223L155,222L155,221L155,221L154,221L154,220L154,219L153,219L153,218L152,218L153,217L152,216L151,215L150,215L150,214L148,213L148,212L147,212L146,211L146,210L145,208L146,208L145,207L146,206L145,206L144,206L145,205L144,204L144,204L143,203L143,202L143,202L142,201L142,200L142,200L141,199L140,199L140,198L140,196L140,195L139,194L138,193L138,193L138,192L136,191L136,191L135,190L134,189L133,188L133,187L131,187L131,186L130,186L130,185L130,184L129,184L129,185L129,185L129,184L128,183L127,182L126,182L126,181L125,181L125,181L124,181L122,181L121,181L120,181L119,181L118,181L117,180L116,181L116,181L114,181L114,180L113,180L111,179L111,179L110,181L108,181L107,182L107,181L105,182L105,182L105,183L105,183L104,184L104,185L103,185L103,186L103,186L103,187L102,188L102,189L102,189L101,190L101,191L101,191L102,192L101,192L100,193L100,193L99,194L98,195L98,195L97,197L96,197L95,197L94,197L94,196L92,196L90,194L89,193L88,193L87,193L86,191L85,191L82,191L81,190L80,189L79,189L78,188L78,187L77,186L76,186L75,186L75,185L73,184L73,183L72,181L71,180L71,179L70,178L70,177L70,176L70,175L70,174L70,173L70,172L69,171L69,171L68,170L68,169L67,169L67,168L66,165L66,165L65,164L64,163L64,163L63,162L62,162L62,161L61,161L60,161L60,160L58,159L58,159L55,157L54,155L53,154L52,154L52,153L51,153L51,153L50,151L48,150L48,149L47,149L46,148L44,147L43,146L42,145L42,144L41,142L41,142L39,141L39,141L38,141L38,140L37,140L37,139L36,139L36,138L36,138L36,136L57,136L73,136L87,136L98,136L98,115L98,110L98,108L98,100L99,96L99,68L99,60L99,46L99,42Z" vector-effect="non-scaling-stroke" stroke-opacity=".2"/><circle cx="190.6" cy="171.3" r="11" stroke-width="1.25" vector-effect="non-scaling-stroke"/><circle cx="190.6" cy="171.3" r="4.5" fill="#EAA13A" stroke="none"/></svg></div></figure>
+        <figure class="tcap" aria-label="Customer story 2 of 6" id="story-2">
+          <blockquote class="tq">“The grid went down for six hours last summer. Our lights stayed on and the fridge never noticed.”</blockquote>
+          <figcaption class="tw"><b>Elena</b><span>Austin · 10.2 kW solar and 13.5 kWh battery, started June 2025</span></figcaption>
+        </figure>
+      </li>
+      <li class="ts">
+        <div class="tph"><div class="tph-in"><img src="/assets/29fd5a5a96d3d020d29b689688600809.jpg" alt="Portrait of Claire, a Solaris customer in San Diego" width="962" height="1018" decoding="async"><span class="tplay" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.6-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></span></div></div>
+        <figure class="tfig" aria-hidden="true"><div class="fbox"><svg viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M138,229L139,229L140,229L141,229L142,230L143,230L144,229L145,230L144,231L143,231L141,231L139,231L138,230ZM56,36L66,36L67,36L72,36L76,36L78,36L86,36L88,36L95,36L98,36L108,36L116,36L130,36L136,36L136,36L136,68L136,69L136,85L136,93L136,94L136,103L136,106L136,112L138,113L146,120L154,127L158,131L165,137L173,145L178,149L186,157L208,177L224,193L229,197L239,207L239,210L240,211L240,213L242,214L243,219L243,220L244,220L246,222L247,222L248,224L248,224L246,226L246,226L245,227L245,227L243,228L242,228L242,230L240,232L241,233L241,234L241,234L241,235L241,236L241,237L241,238L240,240L241,241L240,241L238,244L237,244L237,245L237,246L238,247L238,250L237,251L238,253L238,252L239,253L240,253L241,253L242,255L242,257L241,258L241,259L239,259L237,259L237,260L208,262L191,264L191,262L190,261L190,260L189,261L188,260L189,258L188,257L189,256L188,253L187,251L187,250L184,246L182,245L181,244L180,243L180,243L178,241L177,240L176,240L174,238L173,237L171,236L171,237L169,237L168,237L167,237L166,236L166,236L167,235L167,234L166,232L165,231L164,230L162,230L160,230L159,230L158,230L156,229L154,228L153,228L151,227L150,224L149,224L148,223L148,223L146,222L145,221L145,221L142,221L141,221L140,221L139,221L136,220L134,220L133,220L130,220L127,220L127,220L126,218L125,218L124,218L124,217L125,214L124,213L124,211L123,210L124,207L124,204L123,203L122,203L122,204L120,203L119,202L120,199L120,198L119,197L117,197L115,194L114,192L112,192L111,191L111,189L110,188L109,187L108,187L108,185L107,184L106,183L105,181L103,179L101,178L100,177L100,175L100,175L99,172L99,171L98,170L99,169L100,170L101,169L101,168L102,165L101,162L100,161L99,161L98,161L96,161L94,160L92,158L91,157L91,157L90,155L90,154L90,151L89,150L89,149L88,148L88,148L88,146L88,146L88,144L88,141L89,141L90,141L91,141L91,143L90,143L91,145L91,146L93,146L95,148L95,148L96,149L97,149L97,148L96,148L95,146L95,144L93,143L93,142L92,141L92,140L92,138L91,138L90,137L90,137L91,137L91,136L92,136L93,135L92,133L90,133L89,133L89,133L89,134L88,135L89,136L89,137L88,138L90,139L89,139L88,139L89,140L88,140L87,140L85,138L84,139L83,137L82,136L81,135L80,135L79,136L80,133L80,132L79,130L79,130L78,128L78,129L77,127L76,125L75,124L74,124L72,122L70,119L69,118L68,117L66,115L65,113L66,111L66,110L65,108L64,105L63,103L63,101L64,98L64,97L64,95L63,93L63,91L61,90L61,89L59,86L58,86L58,85L58,84L56,84L53,80L53,79L53,77L52,76L52,74L53,71L56,66L57,64L58,61L57,60L57,58L57,58L58,56L59,51L58,48L57,45L57,43L56,43L55,42L55,40L56,38Z" vector-effect="non-scaling-stroke" stroke-opacity=".2"/><circle cx="190.3" cy="259.9" r="11" stroke-width="1.25" vector-effect="non-scaling-stroke"/><circle cx="190.3" cy="259.9" r="4.5" fill="#EAA13A" stroke="none"/></svg></div></figure>
+        <figure class="tcap" aria-label="Customer story 3 of 6" id="story-3">
+          <blockquote class="tq">“One cloudy month came in under the estimate, so Solaris did not charge me for it. I never had to ask.”</blockquote>
+          <figcaption class="tw"><b>Claire</b><span>San Diego · 7.8 kW solar, started April 2025</span></figcaption>
+        </figure>
+      </li>
+      <li class="ts">
+        <div class="tph"><div class="tph-in"><img src="/assets/0861aececc6c73e48975bb40c5f5ee1e.jpg" alt="Portrait of Robert, a Solaris customer in Jacksonville" width="962" height="1018" decoding="async"><span class="tplay" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.6-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></span></div></div>
+        <figure class="tfig" aria-hidden="true"><div class="fbox"><svg viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M231,254L237,251L238,252L233,254ZM211,258L213,255L215,254L217,253L218,252L222,250L226,252L226,254L228,255L227,255L223,256L223,256L220,256L219,256L214,259L211,259ZM197,187L198,188L200,194L200,195L202,196L203,195L205,196L203,197L202,197L200,195L199,194L198,191L197,189ZM115,40L116,42L117,44L117,46L118,49L119,50L134,51L162,53L184,54L199,55L198,56L198,57L199,58L199,60L200,62L204,62L204,60L204,58L205,55L204,52L204,50L204,49L205,48L204,48L206,48L207,46L208,46L209,47L211,47L213,48L213,49L217,50L219,50L220,50L222,50L222,51L222,54L222,57L222,57L223,58L223,61L223,64L226,76L227,80L227,81L230,90L234,99L237,105L244,118L248,123L248,125L249,128L247,129L247,131L247,134L247,137L248,140L250,144L253,152L255,157L256,160L256,160L257,164L259,169L260,171L261,173L262,177L264,184L264,191L263,196L263,202L262,203L261,211L261,216L261,218L260,221L260,222L260,221L260,220L259,219L258,220L257,223L256,223L256,225L255,226L255,229L255,229L255,231L256,231L255,233L254,233L254,235L256,233L259,228L260,227L260,228L259,230L255,237L254,239L252,242L248,246L245,247L245,247L249,244L250,242L251,241L251,239L252,238L251,237L250,237L249,237L249,237L245,238L244,239L243,239L241,238L239,238L238,239L235,240L233,240L231,239L230,237L230,234L231,233L231,233L231,231L230,229L229,227L229,226L228,225L227,224L226,221L226,221L224,221L224,218L221,217L221,217L219,216L216,214L215,215L214,216L213,212L211,208L210,203L210,200L209,198L206,195L205,195L205,193L203,192L203,194L202,195L202,193L201,189L200,188L200,187L201,187L202,188L203,184L203,181L202,181L202,180L203,180L203,179L201,179L201,180L200,180L201,184L200,185L197,185L197,187L197,184L196,183L194,180L192,175L191,172L189,168L186,164L184,162L184,161L183,159L184,160L184,160L186,160L187,157L188,157L189,154L191,153L190,152L192,151L193,149L193,147L190,146L191,149L188,149L189,148L189,146L188,145L184,142L184,144L183,145L184,146L186,146L187,150L186,151L186,153L186,153L184,154L183,155L184,156L183,157L183,155L183,153L181,151L180,150L179,148L180,143L180,141L179,136L180,136L180,139L181,141L182,142L181,137L182,136L182,135L183,133L183,132L184,131L184,130L185,128L185,126L185,123L185,121L185,120L184,119L184,118L183,114L184,113L182,109L182,108L182,107L180,107L181,106L181,104L180,104L175,103L174,105L173,105L172,102L173,101L171,100L170,99L170,97L169,96L168,94L166,94L166,93L163,92L163,88L163,86L161,86L160,85L159,84L157,83L157,81L156,80L156,79L154,77L151,76L147,73L144,71L143,71L140,72L137,71L137,72L134,75L135,77L135,78L134,79L132,78L131,77L129,78L126,80L119,84L118,84L119,83L118,82L117,83L115,85L111,85L113,86L113,87L115,88L118,86L121,85L124,83L124,83L122,85L119,87L115,89L114,89L113,88L111,87L108,86L106,86L104,87L103,84L103,80L103,79L103,82L104,85L105,86L106,84L106,81L104,78L102,77L100,76L99,75L97,73L94,71L92,69L87,67L82,64L76,62L73,62L66,61L62,61L57,62L50,63L47,64L46,64L39,65L41,64L40,64L41,63L42,61L44,60L42,58L42,57L43,53L43,51L39,49L39,48L36,45L36,45L37,41L37,40L55,40L69,40L88,40L100,40L108,40Z" vector-effect="non-scaling-stroke" stroke-opacity=".2"/><circle cx="215.3" cy="63.3" r="11" stroke-width="1.25" vector-effect="non-scaling-stroke"/><circle cx="215.3" cy="63.3" r="4.5" fill="#EAA13A" stroke="none"/></svg></div></figure>
+        <figure class="tcap" aria-label="Customer story 4 of 6" id="story-4">
+          <blockquote class="tq">“A faulty panel showed up on their end before I noticed. They fixed it and I paid nothing extra.”</blockquote>
+          <figcaption class="tw"><b>Robert</b><span>Jacksonville · 9.6 kW solar, started February 2025</span></figcaption>
+        </figure>
+      </li>
+      <li class="ts">
+        <div class="tph"><div class="tph-in"><img src="/assets/754357fe34b639426976cd9fc8ddcca4.jpg" alt="Portrait of Luke, a Solaris customer in Dallas" width="962" height="1018" decoding="async"><span class="tplay" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.6-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></span></div></div>
+        <figure class="tfig" aria-hidden="true"><div class="fbox"><svg viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M99,42L112,42L123,42L133,42L144,42L151,42L151,83L153,83L155,85L156,87L158,87L159,86L160,86L161,87L162,87L162,85L163,86L164,86L164,87L165,88L165,90L167,90L167,91L167,90L168,91L169,90L170,91L171,91L172,91L173,92L174,92L175,91L176,92L178,93L179,93L179,92L180,91L181,92L182,92L183,92L184,91L185,92L184,93L185,95L186,95L187,95L187,95L187,96L187,96L187,97L187,97L188,98L189,98L191,96L192,95L192,95L193,96L193,96L194,97L195,96L196,97L196,98L196,98L197,99L198,97L198,97L199,98L199,97L200,96L200,97L201,98L200,99L201,100L201,101L202,100L202,99L203,99L202,98L203,98L204,97L204,96L204,96L205,96L205,96L206,97L206,98L206,97L207,98L208,98L209,98L209,97L211,97L210,98L211,99L212,98L212,99L213,99L215,101L215,101L215,101L216,100L217,100L218,100L218,98L219,98L219,98L220,98L222,98L222,97L224,98L224,98L225,98L225,97L226,97L228,96L228,96L229,97L230,97L230,97L232,97L233,97L234,97L234,96L236,96L237,98L239,98L239,99L241,100L241,100L242,100L243,101L244,101L244,102L245,101L247,103L247,102L248,102L248,103L248,104L249,103L249,104L249,104L250,104L250,104L250,104L252,104L252,103L253,104L253,104L254,104L255,104L255,104L255,104L255,115L255,136L255,137L256,138L257,138L258,140L259,141L259,141L259,142L259,143L259,144L258,144L259,145L259,146L260,146L260,147L260,147L261,148L261,148L261,148L261,149L261,150L262,151L262,151L263,153L264,153L263,155L264,155L264,156L263,156L263,157L264,158L263,158L263,159L263,160L263,161L262,162L262,163L261,163L261,165L260,165L260,166L261,166L261,168L260,169L260,170L261,171L261,172L260,172L261,174L260,175L261,175L260,176L259,177L259,178L258,180L257,180L257,181L257,181L258,183L258,183L256,183L253,184L245,187L244,188L243,189L242,189L243,188L244,187L245,187L245,187L246,186L246,186L247,186L246,185L243,186L242,186L243,184L244,183L244,182L243,181L242,181L241,182L241,182L241,183L240,184L239,183L238,183L238,184L239,185L238,186L239,186L240,187L239,188L240,188L240,189L240,190L240,191L239,191L238,192L237,193L236,193L236,193L235,194L236,195L237,194L238,193L238,193L240,191L241,191L241,190L243,190L242,191L238,194L236,195L236,195L234,197L232,199L231,199L226,202L224,203L221,205L217,207L215,208L214,209L213,210L210,212L208,213L205,216L203,218L203,220L202,221L200,224L198,228L198,230L197,233L197,235L197,237L197,240L198,243L199,246L200,249L201,254L200,253L200,251L199,247L199,245L197,245L198,244L198,243L197,241L197,240L197,238L197,236L197,234L197,229L198,226L199,224L200,222L201,221L201,220L201,220L202,218L203,217L204,217L205,215L207,214L207,213L208,213L210,211L212,210L213,210L213,209L214,208L213,208L212,209L211,209L210,210L209,210L209,210L209,208L208,208L207,209L207,210L207,211L207,211L207,212L206,213L205,214L204,214L203,213L203,213L201,214L200,215L201,215L203,214L203,216L203,216L200,220L200,220L199,219L198,219L198,219L196,219L195,219L195,219L195,220L196,220L197,220L197,221L197,221L198,222L199,222L198,225L197,228L196,230L195,230L195,231L194,230L195,230L195,229L195,229L194,229L192,231L193,231L194,231L196,231L196,231L196,233L196,233L196,236L195,240L195,240L196,244L196,245L196,246L197,246L198,250L199,250L198,251L198,251L198,253L199,254L200,254L200,254L201,254L201,256L200,256L199,256L199,257L197,257L197,258L196,258L195,258L194,258L194,257L193,257L192,255L190,255L190,254L189,254L188,254L187,254L186,254L186,254L185,255L185,254L184,254L183,254L183,254L182,254L181,253L182,253L181,253L180,252L179,252L178,251L178,251L176,250L175,251L174,250L173,249L172,249L172,248L172,248L171,248L169,248L169,248L168,247L167,248L167,247L167,246L167,245L166,245L166,243L165,243L165,241L165,241L165,240L164,239L163,238L163,238L162,237L162,237L162,236L162,236L161,236L161,235L161,234L161,233L161,233L161,231L160,231L160,230L159,230L160,229L160,228L160,227L160,226L160,226L160,225L159,224L159,224L158,223L158,224L157,223L157,223L155,222L155,221L155,221L154,221L154,220L154,219L153,219L153,218L152,218L153,217L152,216L151,215L150,215L150,214L148,213L148,212L147,212L146,211L146,210L145,208L146,208L145,207L146,206L145,206L144,206L145,205L144,204L144,204L143,203L143,202L143,202L142,201L142,200L142,200L141,199L140,199L140,198L140,196L140,195L139,194L138,193L138,193L138,192L136,191L136,191L135,190L134,189L133,188L133,187L131,187L131,186L130,186L130,185L130,184L129,184L129,185L129,185L129,184L128,183L127,182L126,182L126,181L125,181L125,181L124,181L122,181L121,181L120,181L119,181L118,181L117,180L116,181L116,181L114,181L114,180L113,180L111,179L111,179L110,181L108,181L107,182L107,181L105,182L105,182L105,183L105,183L104,184L104,185L103,185L103,186L103,186L103,187L102,188L102,189L102,189L101,190L101,191L101,191L102,192L101,192L100,193L100,193L99,194L98,195L98,195L97,197L96,197L95,197L94,197L94,196L92,196L90,194L89,193L88,193L87,193L86,191L85,191L82,191L81,190L80,189L79,189L78,188L78,187L77,186L76,186L75,186L75,185L73,184L73,183L72,181L71,180L71,179L70,178L70,177L70,176L70,175L70,174L70,173L70,172L69,171L69,171L68,170L68,169L67,169L67,168L66,165L66,165L65,164L64,163L64,163L63,162L62,162L62,161L61,161L60,161L60,160L58,159L58,159L55,157L54,155L53,154L52,154L52,153L51,153L51,153L50,151L48,150L48,149L47,149L46,148L44,147L43,146L42,145L42,144L41,142L41,142L39,141L39,141L38,141L38,140L37,140L37,139L36,139L36,138L36,138L36,136L57,136L73,136L87,136L98,136L98,115L98,110L98,108L98,100L99,96L99,68L99,60L99,46L99,42Z" vector-effect="non-scaling-stroke" stroke-opacity=".2"/><circle cx="207.1" cy="120.2" r="11" stroke-width="1.25" vector-effect="non-scaling-stroke"/><circle cx="207.1" cy="120.2" r="4.5" fill="#EAA13A" stroke="none"/></svg></div></figure>
+        <figure class="tcap" aria-label="Customer story 5 of 6" id="story-5">
+          <blockquote class="tq">“My bill is one amount each month now, and it came in below what I was paying the utility.”</blockquote>
+          <figcaption class="tw"><b>Luke</b><span>Dallas · 11.4 kW solar, started August 2025</span></figcaption>
+        </figure>
+      </li>
+      <li class="ts">
+        <div class="tph"><div class="tph-in"><img src="/assets/26c986a338c1ce92daea562da6864a1c.jpg" alt="Portrait of Megan, a Solaris customer in Sacramento" width="962" height="1018" decoding="async"><span class="tplay" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.6v12.8a1 1 0 0 0 1.5.86l10.6-6.4a1 1 0 0 0 0-1.72L9.5 4.74A1 1 0 0 0 8 5.6z"/></svg></span></div></div>
+        <figure class="tfig" aria-hidden="true"><div class="fbox"><svg viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M138,229L139,229L140,229L141,229L142,230L143,230L144,229L145,230L144,231L143,231L141,231L139,231L138,230ZM56,36L66,36L67,36L72,36L76,36L78,36L86,36L88,36L95,36L98,36L108,36L116,36L130,36L136,36L136,36L136,68L136,69L136,85L136,93L136,94L136,103L136,106L136,112L138,113L146,120L154,127L158,131L165,137L173,145L178,149L186,157L208,177L224,193L229,197L239,207L239,210L240,211L240,213L242,214L243,219L243,220L244,220L246,222L247,222L248,224L248,224L246,226L246,226L245,227L245,227L243,228L242,228L242,230L240,232L241,233L241,234L241,234L241,235L241,236L241,237L241,238L240,240L241,241L240,241L238,244L237,244L237,245L237,246L238,247L238,250L237,251L238,253L238,252L239,253L240,253L241,253L242,255L242,257L241,258L241,259L239,259L237,259L237,260L208,262L191,264L191,262L190,261L190,260L189,261L188,260L189,258L188,257L189,256L188,253L187,251L187,250L184,246L182,245L181,244L180,243L180,243L178,241L177,240L176,240L174,238L173,237L171,236L171,237L169,237L168,237L167,237L166,236L166,236L167,235L167,234L166,232L165,231L164,230L162,230L160,230L159,230L158,230L156,229L154,228L153,228L151,227L150,224L149,224L148,223L148,223L146,222L145,221L145,221L142,221L141,221L140,221L139,221L136,220L134,220L133,220L130,220L127,220L127,220L126,218L125,218L124,218L124,217L125,214L124,213L124,211L123,210L124,207L124,204L123,203L122,203L122,204L120,203L119,202L120,199L120,198L119,197L117,197L115,194L114,192L112,192L111,191L111,189L110,188L109,187L108,187L108,185L107,184L106,183L105,181L103,179L101,178L100,177L100,175L100,175L99,172L99,171L98,170L99,169L100,170L101,169L101,168L102,165L101,162L100,161L99,161L98,161L96,161L94,160L92,158L91,157L91,157L90,155L90,154L90,151L89,150L89,149L88,148L88,148L88,146L88,146L88,144L88,141L89,141L90,141L91,141L91,143L90,143L91,145L91,146L93,146L95,148L95,148L96,149L97,149L97,148L96,148L95,146L95,144L93,143L93,142L92,141L92,140L92,138L91,138L90,137L90,137L91,137L91,136L92,136L93,135L92,133L90,133L89,133L89,133L89,134L88,135L89,136L89,137L88,138L90,139L89,139L88,139L89,140L88,140L87,140L85,138L84,139L83,137L82,136L81,135L80,135L79,136L80,133L80,132L79,130L79,130L78,128L78,129L77,127L76,125L75,124L74,124L72,122L70,119L69,118L68,117L66,115L65,113L66,111L66,110L65,108L64,105L63,103L63,101L64,98L64,97L64,95L63,93L63,91L61,90L61,89L59,86L58,86L58,85L58,84L56,84L53,80L53,79L53,77L52,76L52,74L53,71L56,66L57,64L58,61L57,60L57,58L57,58L58,56L59,51L58,48L57,45L57,43L56,43L55,42L55,40L56,38Z" vector-effect="non-scaling-stroke" stroke-opacity=".2"/><circle cx="107.6" cy="121.9" r="11" stroke-width="1.25" vector-effect="non-scaling-stroke"/><circle cx="107.6" cy="121.9" r="4.5" fill="#EAA13A" stroke="none"/></svg></div></figure>
+        <figure class="tcap" aria-label="Customer story 6 of 6" id="story-6">
+          <blockquote class="tq">“Every other solar company I talked to felt like a high-pressure sales pitch. Solaris was the exact opposite.”</blockquote>
+          <figcaption class="tw"><b>Megan</b><span>Sacramento · 6.9 kW solar, started May 2025</span></figcaption>
+        </figure>
+      </li>
+    </ol>
+    <div class="tdots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+</section>
+
+<section id="builds" class="sec on-teal bld" aria-labelledby="bld-h">
+  <div class="bs">
+    <div class="bpin">
+      <div class="bld-head">
+        <h2 id="bld-h" class="big rv">Recent builds</h2>
+        <p class="fine rv" style="font-size:18px">Systems we have installed for homeowners across Florida, Texas and California.</p>
+      </div>
+      <ol class="bld-grid">
+        <li class="bc"><div class="bi"><div class="bimg"><img src="/assets/8f7d42d92e702a23d2b18b4729407c91.jpg" alt="Rooftop solar installation in San Diego" width="1400" height="1400"></div></div><div class="bt"><b class="num">7.6 kW</b><span>San Diego, CA</span></div></li>
+        <li class="bc"><div class="bi"><div class="bimg"><img src="/assets/33e8da8c832957c064f13786dad5cfc8.jpg" alt="Rooftop solar installation in Austin" width="1400" height="1400" decoding="async"></div></div><div class="bt"><b class="num">11.4 kW</b><span>Austin, TX</span></div></li>
+        <li class="bc"><div class="bi"><div class="bimg"><img src="/assets/0a7972d2857add2189e048e056011223.jpg" alt="Rooftop solar installation in Houston" width="1400" height="1400" decoding="async"></div></div><div class="bt"><b class="num">9.8 kW</b><span>Houston, TX</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec on-sun close" aria-labelledby="close-h">
+  <div class="wrap">
+    <h2 id="close-h" class="giant rv" style="font-size:clamp(56px,13vw,240px)">Start with the numbers.</h2>
+    <div class="close-cta rv">
+      <a class="btn btn-ink" href="/#quote">See my estimate <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+      <a class="btn btn-line" href="/#terms">Read the terms</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand" style="gap:4px">
+      <img class="foot-logo" src="/assets/001fba8d1e0a9cdabf292b70f45e0407.png" width="2032" height="436" alt="Solaris" style="height:35px;object-fit:cover;object-position:45.05% 60.7163%;width:180px;object-view-box:inset(10.1748% 5.3416% 6.5831% 4.3792%)">
+      <p class="foot-tag" style="font-size:20px;line-height:1.6;font-weight:400;letter-spacing:0">Solar the way it should be.</p>
+    </div>
+    <nav class="foot-col" aria-label="Pages">
+      <p class="foot-h">Pages</p>
+      <a href="/about">About</a>
+      <a href="/testimonials">Testimonials</a>
+      <a href="/faq">FAQ</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="foot-col">
+      <p class="foot-h">Service area</p>
+      <span>Florida</span><span>Texas</span><span>California</span>
+    </div>
+    <div class="foot-col">
+      <p class="foot-h">Start</p>
+      <a href="/#quote">See my estimate</a>
+      <a href="/#terms">Read the terms</a>
+    </div>
+  </div>
+  <div class="foot-mark" aria-hidden="true">Solaris</div>
+</footer>
+
+</div>
+</x-dc>
+
+<script>
+/* Solaris testimonials: pinned story scene
+   A centred portrait card grows into a full-height panel, then the stories wipe upward one after another
+   while the caption and figure cross-fade. Static stacked layout is the default; this script switches it on. */
+(function () {
+  var PI = 0.14, WIPE = 0.42;
+  var reduce = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var hasST = !!(window.CSS && CSS.supports && CSS.supports('animation-timeline', 'view()'));
+  var hasIO = 'IntersectionObserver' in window;
+
+  var listeners = [], moRoots = [], tries = 0, queued = 0;
+  function roots() {
+    var r = [document], x = document.querySelector('x-dc');
+    if (x && x.shadowRoot) r.push(x.shadowRoot);
+    return r;
+  }
+  function runAll() { queued = 0; for (var i = 0; i < listeners.length; i++) listeners[i](); }
+  function queue() { if (!queued) queued = requestAnimationFrame(runAll); }
+  function attach() {
+    roots().forEach(function (r) {
+      if (moRoots.indexOf(r) > -1 || !window.MutationObserver) return;
+      moRoots.push(r);
+      new MutationObserver(queue).observe(r === document ? document.documentElement : r, { childList: true, subtree: true });
+    });
+    queue();
+    if (++tries < 40 && moRoots.length < 2) setTimeout(attach, 250);
+  }
+  function onDom(fn) { listeners.push(fn); fn(); if (listeners.length === 1) attach(); }
+  function qa(sel) {
+    var out = [];
+    roots().forEach(function (r) { out.push.apply(out, r.querySelectorAll(sel)); });
+    return out;
+  }
+  function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
+  function wipeEase(t) { return -(Math.cos(Math.PI * t) - 1) / 2; }
+  function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+
+  var S = null, raf = 0;
+
+  function bind() {
+    var stage = qa('.tstage')[0];
+    if (!stage) { S = null; return; }
+    if (S && S.stage === stage) return;
+    S = { stage: stage, pin: stage.querySelector('.tpin'), dotsEl: stage.querySelector('.tdots'), dots: [].slice.call(stage.querySelectorAll('.tdots i')), slides: [], on: false, rp: -1, disp: -1, t: 0, wc: 0, cur: 0 };
+    [].slice.call(stage.querySelectorAll('.ts')).forEach(function (li) {
+      S.slides.push({ ph: li.querySelector('.tph'), inn: li.querySelector('.tph-in'), img: li.querySelector('.tph img'), cap: li.querySelector('.tcap'), tw: li.querySelector('.tw'), fig: li.querySelector('.tfig') });
+    });
+    setMode();
+  }
+
+  function measure() {
+    var s = S;
+    if (!s || !s.on) return;
+    var w = s.pin.clientWidth, h = s.pin.clientHeight, fw = w * 0.58;
+    s.pinW = w; s.pinH = h;
+    var cw = Math.min(w * 0.37, 700);
+    s.cs0 = Math.max(0, (fw - cw) / 2);
+    s.ct0 = h * 0.085;
+    s.tx0 = w / 2 - fw / 2;
+    s.r0 = clamp(w * 0.035, 24, 64);
+    s.R = clamp(w * 0.055, 32, 100);
+    s.rp = -1; s.disp = -1;
+  }
+
+  function clearStyles() {
+    var s = S;
+    if (!s) return;
+    s.pin.removeAttribute('style');
+    s.wc = 0;
+    s.slides.forEach(function (o) {
+      [o.ph, o.inn, o.img, o.cap, o.tw, o.fig].forEach(function (el) { if (el) el.removeAttribute('style'); });
+    });
+    s.dots.forEach(function (d, i) { d.classList.toggle('on', i === 0); });
+    if (s.dotsEl) s.dotsEl.removeAttribute('style');
+  }
+
+  function setMode() {
+    var s = S;
+    if (!s || !s.stage.isConnected) return;
+    var on = !reduce && s.stage.clientWidth >= 760;
+    if (on === s.on) { if (on) measure(); return; }
+    s.on = on;
+    if (on) {
+      s.stage.classList.add('is-pinned');
+      measure();
+      apply();
+    } else {
+      s.stage.classList.remove('is-pinned');
+      clearStyles();
+    }
+  }
+
+  function apply() {
+    var s = S;
+    if (!s || !s.on || !s.stage.isConnected) return;
+    var r = s.stage.getBoundingClientRect(), span = r.height - s.pinH;
+    if (span <= 0) return;
+    s.t = clamp(-r.top / span, 0, 1);
+    if (s.disp < 0) s.disp = s.t;
+    step();
+  }
+
+  /* glide toward the scroll position so wheel notches don't step the wipe */
+  function step() {
+    var s = S;
+    if (!s || !s.on) return;
+    var d = s.t - s.disp;
+    if (Math.abs(d) < 0.0004) s.disp = s.t; else s.disp += d * 0.16;
+    render(s.disp);
+    if (s.disp !== s.t) schedule();
+  }
+
+  function render(p) {
+    var s = S;
+    if (Math.abs(p - s.rp) < 0.0001) return;
+    s.rp = p;
+
+    var ex = ease(clamp(p / PI, 0, 1)), st = s.pin.style;
+    st.setProperty('--ct', (s.ct0 * (1 - ex)).toFixed(1) + 'px');
+    st.setProperty('--cs', (s.cs0 * (1 - ex)).toFixed(1) + 'px');
+    st.setProperty('--rl', (s.r0 * (1 - ex)).toFixed(1) + 'px');
+    st.setProperty('--rr', (s.r0 + (s.R - s.r0) * ex).toFixed(1) + 'px');
+    st.setProperty('--tx', (s.tx0 * (1 - ex)).toFixed(1) + 'px');
+    if (s.dotsEl) s.dotsEl.style.opacity = String(clamp((ex - 0.8) / 0.2, 0, 1));
+
+    var n = s.slides.length, q = clamp((p - PI) / (1 - PI), 0, 1) * n, H = s.pinH, cur = 0;
+    for (var i = 0; i < n; i++) {
+      var o = s.slides[i];
+      var tin = i === 0 ? 1 : wipeEase(clamp((q - i) / WIPE, 0, 1));
+      var tout = i === n - 1 ? 0 : wipeEase(clamp((q - i - 1) / WIPE, 0, 1));
+      if (tin >= 0.5) cur = i;
+      if (i > 0 && o.inn) {
+        o.inn.style.clipPath = 'inset(' + ((1 - tin) * 100).toFixed(2) + '% 0px 0px 0px)';
+        o.inn.style.opacity = tin <= 0.001 ? '0' : '1';
+      }
+      var y = (1 - tin) * 0.07 * H - tout * 0.09 * H;
+      var sc = 1 + 2 * Math.abs(y) / H + 0.05 * (1 - tin) + (i === 0 ? 0.22 * (1 - ex) : 0);
+      if (o.img) o.img.style.transform = 'translate3d(0,' + y.toFixed(1) + 'px,0) scale(' + sc.toFixed(4) + ')';
+      var oin = i === 0 ? clamp((ex - 0.75) / 0.25, 0, 1) : clamp((tin - 0.5) / 0.5, 0, 1);
+      var oo = clamp(tout / 0.45, 0, 1);
+      var op = oin * (1 - oo);
+      /* enters rising from below, leaves upward: same direction as the portrait */
+      var ty = 'translate3d(0,' + ((1 - oin) * 14 - oo * 10).toFixed(1) + 'px,0)';
+      if (o.cap) { o.cap.style.opacity = op.toFixed(3); o.cap.style.transform = ty; }
+      if (o.fig) { o.fig.style.opacity = op.toFixed(3); o.fig.style.transform = ty; }
+      if (o.tw) {
+        /* name line follows the quote a beat later */
+        var wf = i === 0 ? clamp((ex - 0.88) / 0.12, 0, 1) : clamp((tin - 0.72) / 0.28, 0, 1);
+        o.tw.style.opacity = wf.toFixed(3);
+        o.tw.style.transform = 'translate3d(0,' + ((1 - wf) * 8).toFixed(1) + 'px,0)';
+      }
+    }
+    if (cur !== s.cur || !s.wc) {
+      s.cur = cur; s.wc = 1;
+      s.dots.forEach(function (d, i) { d.classList.toggle('on', i === cur); });
+      /* only keep the current slide and its neighbours promoted */
+      s.slides.forEach(function (o, i) { if (o.img) o.img.style.willChange = Math.abs(i - cur) <= 1 ? 'transform' : ''; });
+    }
+  }
+
+  function tick() { raf = 0; apply(); }
+  function schedule() { if (!raf) raf = requestAnimationFrame(tick); }
+
+  onDom(function () { bind(); schedule(); });
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', function () { setMode(); schedule(); });
+  window.addEventListener('load', function () { setMode(); schedule(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { setMode(); schedule(); });
+
+  /* in-page links: shadow-DOM safe smooth scroll */
+  document.addEventListener('click', function (ev) {
+    if (ev.defaultPrevented || ev.button) return;
+    var path = ev.composedPath ? ev.composedPath() : [ev.target], a = null, i;
+    for (i = 0; i < path.length; i++) { if (path[i] && path[i].tagName === 'A') { a = path[i]; break; } }
+    if (!a) return;
+    var h = a.getAttribute('href');
+    if (!h || h.charAt(0) !== '#' || h.length < 2) return;
+    var id = h.slice(1), el = null, rs = roots();
+    for (i = 0; i < rs.length && !el; i++) { el = rs[i].getElementById ? rs[i].getElementById(id) : null; }
+    if (!el) return;
+    ev.preventDefault();
+    var far = Math.abs(el.getBoundingClientRect().top) > window.innerHeight * 1.5;
+    el.scrollIntoView({ behavior: (reduce || far) ? 'auto' : 'smooth', block: 'start' });
+    var d = a.closest ? a.closest('details') : null;
+    if (d) d.removeAttribute('open');
+  }, true);
+
+  /* nav dropdowns: one open at a time, close on outside click or Escape */
+  document.addEventListener('toggle', function (ev) {
+    var d = ev.target;
+    if (!d || !d.classList || !d.classList.contains('dd') || !d.open) return;
+    qa('.dd[open]').forEach(function (o) { if (o !== d) o.removeAttribute('open'); });
+  }, true);
+  document.addEventListener('click', function (ev) {
+    var path = ev.composedPath ? ev.composedPath() : [ev.target];
+    qa('.dd[open]').forEach(function (o) { if (path.indexOf(o) < 0) o.removeAttribute('open'); });
+  });
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key !== 'Escape') return;
+    qa('.dd[open]').forEach(function (o) { o.removeAttribute('open'); var sm = o.querySelector('summary'); if (sm) sm.focus(); });
+  });
+
+  /* buttons: label rolls up and a duplicate rolls in on hover and focus */
+  function rollify(host, label) {
+    var r = document.createElement('span');
+    r.className = 'roll';
+    var a = document.createElement('i'), b = document.createElement('i');
+    a.textContent = label; b.textContent = label; b.setAttribute('aria-hidden', 'true');
+    r.appendChild(a); r.appendChild(b);
+    return r;
+  }
+  onDom(function () {
+    qa('a.btn:not([data-rl]),.btn:not([data-rl]),.bar-r:not([data-rl]),.pnl a:not([data-rl]),.dd summary:not([data-rl])').forEach(function (el) {
+      el.setAttribute('data-rl', '1');
+      var kids = [].slice.call(el.childNodes);
+      kids.forEach(function (n) {
+        if (n.nodeType === 3) {
+          var t = n.textContent.trim();
+          if (t) el.replaceChild(rollify(el, t), n);
+        } else if (n.nodeType === 1 && n.tagName === 'SPAN' && !n.children.length) {
+          var t2 = n.textContent.trim();
+          if (t2) { n.textContent = ''; n.appendChild(rollify(n, t2)); }
+        }
+      });
+    });
+  });
+
+  /* nav bar: hidden while scrolling down, revealed on scroll up */
+  var lastY = window.pageYOffset || 0;
+  window.addEventListener('scroll', function () {
+    var y = window.pageYOffset || 0, d = y - lastY;
+    if (Math.abs(d) < 6) return;
+    lastY = y;
+    var nav = qa('.nav')[0];
+    if (!nav) return;
+    var hide = d > 0 && y > 10;
+    if (hide && nav.matches && nav.matches(':focus-within')) return;
+    if (hide !== nav.classList.contains('hide')) {
+      nav.classList.toggle('hide', hide);
+      if (hide) qa('.dd[open]').forEach(function (o) { o.removeAttribute('open'); });
+    }
+  }, { passive: true });
+
+  /* reveal fallback where CSS scroll timelines are unavailable */
+  if (!reduce && !hasST && hasIO) {
+    var ioR = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); ioR.unobserve(en.target); } });
+    }, { threshold: 0.15 });
+    onDom(function () {
+      qa('.rv,.w').forEach(function (el) {
+        if (el.getAttribute('data-fb')) return;
+        el.setAttribute('data-fb', '1'); el.classList.add('fb'); ioR.observe(el);
+      });
+    });
+  }
+})();
+
+</script>
+
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":8000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

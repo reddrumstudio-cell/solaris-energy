@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Solaris FAQ</title>
+<link rel="icon" href="data:,"><meta name="viewport" content="width=device-width,initial-scale=1"><style>x-dc{display:block}</style><script src="/dc-lite.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..900&amp;family=Newsreader:opsz,wght@6..72,200..800&amp;display=swap" rel="stylesheet">
+<style>
+:root{--sun:#EAA13A;--ink:#171717;--ink-2:#2A2A28;--cream:#F4F1EA;--paper:#FFFFFF;--cream-2:#E6E2D8;--gray:#D7D5CF;--teal:#287A70;--muted:#4A4843;--hair:#D7D5CF;--err:#A3231A;--ok:#1F623B;--font:"Schibsted Grotesk",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;--sh:clamp(480px,100vh,1200px);--ease:cubic-bezier(.22,1,.36,1);--pad:clamp(16px,3vw,48px);--rad:clamp(24px,5vw,80px)}
+@supports (height:100svh){:root{--sh:clamp(480px,100svh,1200px)}}
+*{box-sizing:border-box}
+html{scroll-behavior:auto;scroll-padding-top:80px}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font);font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,h4,p,ul,ol,dl,dd,dt{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+img,video{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 6px var(--cream)}
+.num{font-variant-numeric:tabular-nums}
+.skip{position:absolute;left:16px;top:-80px;z-index:100;background:var(--ink);color:var(--cream);padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none}
+.skip:focus{top:12px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 28px;border-radius:999px;border:2px solid var(--ink);font:600 17px/1 var(--font);letter-spacing:-.01em;cursor:pointer;text-decoration:none;white-space:nowrap;transition:background-color .2s ease,color .2s ease,transform .18s var(--ease)}
+.btn svg{flex:none;transition:transform .3s var(--ease)}
+.btn:active{transform:scale(.97)}
+.btn-ink{background:var(--ink);color:var(--cream)}
+.btn-sun{background:var(--sun);color:var(--ink)}
+.btn-cream{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.btn-line{background:transparent;color:var(--ink)}
+.btn-line.on-ink{color:var(--cream);border-color:var(--cream)}
+@media (hover:hover) and (pointer:fine){
+.btn:hover svg{transform:translateX(5px)}
+.btn-ink:hover{background:#000}
+.btn-sun:hover{background:var(--cream)}
+.btn-cream:hover{background:var(--sun);border-color:var(--sun)}
+.btn-line:hover{background:var(--ink);color:var(--cream)}
+.btn-line.on-ink:hover{background:var(--cream);color:var(--ink)}
+}
+.btn[disabled]{background:var(--cream-2);color:#77746C;border-color:var(--hair);cursor:not-allowed;transform:none}
+.spin{animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tlink:active{transform:scale(.97)}
+.tlink{transition:transform .16s var(--ease);background:none;border:0;padding:12px 4px;min-height:44px;font:600 16px/1.2 var(--font);color:var(--ink);text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:14px var(--pad);pointer-events:none;transition:transform .65s cubic-bezier(.25,.6,.2,1),opacity .5s ease-out,visibility 0s}
+.nav.hide:focus-within{transform:none}
+.nav.hide{transform:translateY(-120%);opacity:0;visibility:hidden;transition:transform .65s cubic-bezier(.25,.6,.2,1),opacity .5s ease-out,visibility 0s .65s}
+@media (prefers-reduced-motion:reduce){.nav{transition:none}}
+.bar{pointer-events:auto;position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;min-height:52px;padding:0 8px 0 6px;border-radius:999px;box-shadow:0 0 0 1px rgba(23,23,23,.12),0 10px 28px -14px rgba(23,23,23,.22)}
+.bar::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:rgba(244,241,234,.62);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);pointer-events:none}
+.bar-l{display:flex;align-items:center;gap:2px;justify-self:start}
+.dd{position:relative}
+.dd summary{list-style:none;display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 14px;border-radius:999px;font-weight:500;font-size:15px;color:var(--ink);cursor:pointer;user-select:none;transition:background-color .15s ease,transform .16s var(--ease)}
+.dd summary::-webkit-details-marker{display:none}
+.dd summary.ic{width:48px;justify-content:center;padding:0}
+.dd[open]>summary{background:rgba(23,23,23,.07)}
+.chev{transition:transform .2s var(--ease)}
+.dd[open] .chev{transform:rotate(180deg)}
+.pnl{position:absolute;left:0;top:calc(100% + 14px);min-width:232px;padding:6px;background:rgba(244,241,234,.68);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:24px;box-shadow:0 0 0 1px rgba(23,23,23,.12),0 18px 40px -18px rgba(23,23,23,.28);display:flex;flex-direction:column;transform-origin:20px 0}
+@media (prefers-reduced-motion:no-preference){.pnl{animation:pnl-in .18s var(--ease)}}
+@keyframes pnl-in{from{opacity:0;transform:translateY(-4px) scale(.98)}to{opacity:1;transform:none}}
+.pnl a:active,.dd summary:active,.bar-r:active{transform:scale(.97)}
+.pnl a{display:flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;color:var(--ink);font-size:16px;font-weight:500;text-decoration:none;transition:transform .16s var(--ease)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+.bar::before{background:rgba(244,241,234,.95)}
+.pnl{background:rgba(244,241,234,.97)}
+}
+@media (prefers-reduced-transparency:reduce){
+.bar::before{background:var(--cream);-webkit-backdrop-filter:none;backdrop-filter:none}
+.pnl{background:var(--cream);-webkit-backdrop-filter:none;backdrop-filter:none}
+}
+.bar-logo{justify-self:center;display:inline-flex;align-items:center;min-height:44px;padding:0 8px;text-decoration:none}
+.bar-logo img{height:26px;width:auto}
+.bar-r{justify-self:end;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 18px;border-radius:999px;background:var(--sun);font-weight:500;font-size:15px;color:var(--ink);text-decoration:none;transition:transform .16s var(--ease)}
+.cta-short{display:none}
+.bar-r svg{flex:none;transition:transform .3s var(--ease)}
+@media (max-width:640px){
+.dd-ex{display:none}
+.bar-logo img{height:24px}
+.bar-r{padding:0 16px}
+.cta-long{display:none}
+.cta-short{display:inline}
+}
+
+.roll{position:relative;display:inline-block;overflow:hidden;vertical-align:top;white-space:nowrap;line-height:1.3;padding-bottom:.1em;margin-bottom:-.1em}
+.roll>i{display:block;font-style:normal}
+.roll>i+i{position:absolute;left:0;top:0;transform:translateY(110%)}
+@media (prefers-reduced-motion:no-preference){
+.roll>i{transition:transform .4s var(--ease)}
+@media (hover:hover) and (pointer:fine){
+.btn:hover .roll>i:first-child,.bar-r:hover .roll>i:first-child,.pnl a:hover .roll>i:first-child,.dd summary:hover .roll>i:first-child,.fq-nav a:hover .roll>i:first-child{transform:translateY(-110%)}
+.bar-r:hover svg{transform:translateX(4px)}
+.btn:hover .roll>i+i,.bar-r:hover .roll>i+i,.pnl a:hover .roll>i+i,.dd summary:hover .roll>i+i,.fq-nav a:hover .roll>i+i{transform:translateY(0)}
+}
+.btn:focus-visible .roll>i:first-child,.bar-r:focus-visible .roll>i:first-child,.pnl a:focus-visible .roll>i:first-child,.dd summary:focus-visible .roll>i:first-child,.fq-nav a:focus-visible .roll>i:first-child{transform:translateY(-110%)}
+.btn:focus-visible .roll>i+i,.bar-r:focus-visible .roll>i+i,.pnl a:focus-visible .roll>i+i,.dd summary:focus-visible .roll>i+i,.fq-nav a:focus-visible .roll>i+i{transform:translateY(0)}
+}
+/* sections */
+.sec{position:relative;padding:clamp(72px,10vw,168px) var(--pad)}
+.wrap{max-width:1440px;margin:0 auto}
+.on-sun{background:var(--sun);color:var(--ink)}
+.on-cream{background:var(--cream);color:var(--ink)}
+.on-teal{background:var(--teal);color:var(--cream)}
+.on-teal .body{color:var(--cream)}
+.on-gray{background:var(--gray);color:var(--ink)}
+.on-gray .body{color:var(--ink-2)}
+.on-gray .fine{color:var(--ink-2)}
+.on-ink{background:var(--ink);color:var(--cream)}
+.eyebrow{font-size:16px;font-weight:600;letter-spacing:.02em;margin-bottom:20px}
+.giant{font-size:clamp(52px,11.5vw,200px);line-height:.88;letter-spacing:-.06em;font-weight:600}
+.big{font-size:clamp(40px,6.6vw,112px);line-height:.94;letter-spacing:-.05em;font-weight:600;text-wrap:balance}
+.mid{font-size:clamp(30px,3.6vw,56px);line-height:1;letter-spacing:-.04em;font-weight:600;text-wrap:balance}
+.body{font-size:clamp(18px,1.5vw,22px);line-height:1.45;font-weight:500;max-width:34em}
+.on-sun .body{color:var(--ink-2)}
+.on-cream .body{color:var(--muted)}
+.on-ink .body{color:#D7D5CF}
+.fine{font-size:15px;line-height:1.5;max-width:46em}
+.on-sun .fine{color:var(--ink-2)}
+.on-cream .fine{color:var(--muted)}
+.on-ink .fine{color:#BDBAB2}
+.w{display:inline-block}
+/* reveal */
+.rv,.w{opacity:1}
+@supports (animation-timeline:view()){
+@media (prefers-reduced-motion:no-preference){
+.rv{animation:rise linear both;animation-timeline:view();animation-range:entry 4% entry 52%}
+.w{animation:rise linear both;animation-timeline:view();animation-range:entry calc(2% + var(--i,0) * 3%) entry calc(46% + var(--i,0) * 3%)}
+}
+}
+@keyframes rise{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+.fb{opacity:0;transform:translateY(28px);transition:opacity .5s var(--ease),transform .6s var(--ease);transition-delay:calc(var(--i,0) * 50ms)}
+.fb.in{opacity:1;transform:none}
+/* close */
+.close{text-align:left}
+.close-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:clamp(32px,4vw,56px)}
+
+/* footer (ported from About) */
+.foot{background:var(--ink);color:#D7D5CF;overflow:hidden;margin-top:0}
+.foot-in{max-width:80rem;margin:0 auto;padding:clamp(48px,6vw,80px) clamp(16px,4vw,64px) 0;display:grid;grid-template-columns:minmax(0,5fr) repeat(3,minmax(0,2fr));gap:40px clamp(24px,3vw,48px)}
+.foot-logo{display:block;align-self:flex-start;width:clamp(180px,22vw,264px);height:auto}
+.foot-brand{display:flex;flex-direction:column;gap:20px}
+.foot-tag{font:400 16px/1.6 var(--font);color:#E6E2D8;max-width:34ch}
+.foot-col{display:flex;flex-direction:column;gap:2px;font:400 16px/1.5 var(--font);color:#D7D5CF}
+.foot-col span{min-height:36px;display:flex;align-items:center}
+.foot-h{font:600 16px/1.4 var(--font);color:var(--cream);margin-bottom:12px}
+.foot a{display:flex;align-items:center;min-height:36px;color:#D7D5CF;text-decoration:none;text-underline-offset:4px;transition:color 160ms cubic-bezier(0.23,1,0.32,1)}
+@media (hover:hover) and (pointer:fine){.foot a:hover{color:var(--cream);text-decoration:underline}}
+.foot a:focus-visible{outline:2px solid var(--sun);outline-offset:3px;border-radius:2px;box-shadow:none}
+.foot-mark{font-family:"Newsreader","Iowan Old Style","Palatino Linotype",Georgia,serif;font-weight:300;font-size:clamp(5rem,27vw,26rem);line-height:0.74;letter-spacing:-0.04em;text-align:center;color:rgba(234,161,58,0.16);white-space:nowrap;margin-top:clamp(40px,6vw,72px);height:0.58em;overflow:hidden;user-select:none}
+@media (max-width:900px){.foot-in{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+@media (max-width:480px){.foot-in{grid-template-columns:1fr}}
+
+/* faq */
+.pnl a[aria-current]{background:rgba(23,23,23,.07)}
+.fq-head{padding-top:clamp(120px,17vh,180px);padding-bottom:clamp(32px,5vw,64px)}
+.fq-head .big{max-width:11em}
+.fq-head .body{margin-top:clamp(20px,2vw,32px)}
+.fq-sec{padding-top:clamp(24px,3vw,48px)}
+.fq-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,96px);align-items:start}
+.fq-side{position:sticky;top:clamp(88px,12vh,120px)}
+.fq-fig{position:relative;margin:0;border-radius:28px;overflow:hidden;background:var(--gray);aspect-ratio:4/5;max-height:calc(var(--sh) - 300px);width:100%;isolation:isolate}
+.fq-fig video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+.fq-fig video{opacity:1;transition:opacity .55s cubic-bezier(.65,0,.35,1)}
+.fq-fig video.out{opacity:0}
+@media (prefers-reduced-motion:reduce){.fq-fig video{transition:none}}
+.fq-pp{position:absolute;right:14px;bottom:14px;z-index:2;display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:50%;background:var(--cream);color:var(--ink);cursor:pointer;transition:transform .16s var(--ease),background-color .25s var(--ease)}
+.fq-pp:active{transform:scale(.94)}
+.fq-pp:focus-visible{outline:3px solid var(--sun);outline-offset:2px;box-shadow:none}
+.fq-pp .i-play{display:none}.fq-pp[aria-pressed="true"] .i-play{display:block}.fq-pp[aria-pressed="true"] .i-pause{display:none}
+.fq-nav{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin:0 0 clamp(20px,2.4vw,32px)}
+.fq-nav a{display:inline-flex;align-items:center;min-height:48px;padding:6px 0;color:var(--ink);font-size:clamp(24px,2.4vw,36px);line-height:1.1;font-weight:600;letter-spacing:-.04em;text-decoration:none;transition:transform .16s var(--ease)}
+.fq-nav a:active{transform:scale(.97)}
+.fq-nav a:focus-visible{outline:2px solid var(--sun);outline-offset:4px;border-radius:4px;box-shadow:none}
+.fq-g{margin:clamp(40px,5vw,72px) 0 16px;font-size:16px;font-weight:600;letter-spacing:.02em;color:var(--muted);scroll-margin-top:96px}
+.fq-i:first-child .fq-g{margin-top:0}
+.fq-row{border-top:2px solid var(--ink)}
+.fq-row h3{margin:0}
+.fq-q{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%;min-height:84px;padding:22px 0;border:0;border-radius:0;background:transparent;color:var(--ink);font:600 clamp(22px,2.2vw,32px)/1.12 var(--font);letter-spacing:-.035em;text-align:left;cursor:pointer}
+.fq-q:focus-visible{outline:2px solid var(--sun);outline-offset:4px;border-radius:4px}
+.fq-ic{color:var(--ink);position:relative;flex:none;width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);transition:background-color .25s ease,border-color .25s ease,transform .16s var(--ease)}
+.fq-ic svg{position:absolute;left:50%;top:50%;margin:-9px 0 0 -9px;transition:transform .4s var(--ease)}
+.fq-q:active .fq-ic{transform:scale(.94)}
+@media (hover:hover) and (pointer:fine){.fq-q:hover .fq-ic{background:var(--ink)}.fq-q:hover .fq-ic{color:var(--cream)}}
+.fq-row[data-open="1"] .fq-ic{background:var(--sun);border-color:var(--sun)}
+.fq-row[data-open="1"] .fq-ic{color:var(--ink)}
+.fq-row[data-open="1"] .fq-ic svg{transform:rotate(180deg)}
+.fq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.fq-a>div{min-height:0;overflow:hidden;visibility:hidden;transition:visibility 0s .4s}
+.fq-row[data-open="1"] .fq-a{grid-template-rows:1fr}
+.fq-row[data-open="1"] .fq-a>div{visibility:visible;transition-delay:0s}
+.fq-a p{max-width:38em;padding:0 clamp(0px,6vw,72px) 28px 0;font-size:clamp(18px,1.5vw,21px);line-height:1.5;font-weight:500;color:var(--muted)}
+.fq-end{border-top:2px solid var(--ink)}
+@media (max-width:759px){
+.fq-grid{grid-template-columns:minmax(0,1fr)}
+.fq-side{position:static}
+.fq-fig{aspect-ratio:4/3;max-height:none;border-radius:20px}
+}
+@media (prefers-reduced-motion:reduce){.fq-a,.fq-ic,.fq-ic svg,.fq-a>div{transition:none}}
+</style>
+
+</head>
+<body>
+<x-dc>
+
+
+<div style="min-height:100%;background:var(--cream)">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="bar">
+    <div class="bar-l">
+      <details class="dd dd-menu">
+        <summary class="ic" aria-label="Menu"><svg width="22" height="12" viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M1 1.5h20"></path><path d="M1 10.5h20"></path></svg></summary>
+        <nav class="pnl" aria-label="Menu">
+          <a href="/#how">How It Works</a>
+          <a href="/about">About</a>
+          <a href="/testimonials">Testimonials</a>
+          <a href="/faq" aria-current="page">FAQs</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </details>
+      <details class="dd dd-ex">
+        <summary>Explore<svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></summary>
+        <nav class="pnl" aria-label="Explore">
+          <a href="#price">Price and terms</a>
+          <a href="#equipment">Equipment and service</a>
+          <a href="#eligibility">Eligibility</a>
+        </nav>
+      </details>
+    </div>
+    <a class="bar-logo" href="/" aria-label="Solaris home"><img src="/assets/977f0601eee76ac7468ee6c5f3ffd604.png" alt=""></a>
+    <a class="bar-r" href="/#quote"><span class="cta-long">See my estimate</span><span class="cta-short">Estimate</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+  </div>
+</header>
+
+
+<main id="main" tabindex="-1" style="outline:none">
+
+<section class="sec on-cream fq-head" aria-labelledby="h1">
+  <div class="wrap">
+    <p class="eyebrow rv">FAQ</p>
+    <h1 id="h1" class="big rv">Questions, answered plainly.</h1>
+    <p class="body rv">Clear answers to your questions about home solar, pricing, and service.</p>
+  </div>
+</section>
+
+<section class="sec on-cream fq-sec" aria-label="Frequently asked questions">
+  <div class="wrap fq-grid">
+    <div class="fq-side rv">
+      <nav class="fq-nav" aria-label="Question groups">
+        <a href="#price">Price and terms</a>
+        <a href="#equipment">Equipment and service</a>
+        <a href="#eligibility">Eligibility</a>
+      </nav>
+      <figure class="fq-fig">
+        <video id="fq-v" src="/assets/2f77c8e8ad348e0dae61857a50916d75.mp4" poster="/assets/3e61f714b91be0c8da8dc584873f8f1e.jpg" muted playsinline preload="metadata" aria-label="A Solaris installer in a hard hat fastening a solar panel to a roof" width="720" height="900"></video>
+        <button type="button" class="fq-pp" id="fq-pp" data-rl="1" aria-label="Pause video" aria-pressed="false"><svg class="i-pause" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><svg class="i-play" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg></button>
+      </figure>
+    </div>
+    <div class="fq-list">
+      <sc-for list="{{faqs}}" as="f" hint-placeholder-count="6">
+        <div class="fq-i">
+          <sc-if value="{{f.groupStart}}" hint-placeholder-val="{{false}}">
+            <p class="fq-g" id="{{f.gid}}">{{f.group}}</p>
+          </sc-if>
+          <div class="fq-row" data-open="{{f.openS}}">
+            <h3>
+              <button class="fq-q" type="button" aria-expanded="{{f.open}}" onClick="{{f.toggle}}">
+                <span>{{f.q}}</span>
+                <span class="fq-ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 7.2 3.793 3.793a1 1 0 0 0 1.414 0L13.5 7.2"/></svg></span>
+              </button>
+            </h3>
+            <div class="fq-a"><div><p>{{f.a}}</p></div></div>
+          </div>
+        </div>
+      </sc-for>
+      <div class="fq-end"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec on-sun close" aria-labelledby="close-h">
+  <div class="wrap">
+    <h2 id="close-h" class="giant rv" style="font-size:clamp(56px,13vw,240px)">Start with the numbers.</h2>
+    <div class="close-cta rv">
+      <a class="btn btn-ink" href="/#quote">See my estimate <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+      <a class="btn btn-line" href="/#terms">Read the terms</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-brand" style="gap:4px">
+      <img class="foot-logo" src="/assets/001fba8d1e0a9cdabf292b70f45e0407.png" width="2032" height="436" alt="Solaris" style="height:35px;object-fit:cover;object-position:45.05% 60.7163%;width:180px;object-view-box:inset(10.1748% 5.3416% 6.5831% 4.3792%)">
+      <p class="foot-tag" style="font-size:20px;line-height:1.6;font-weight:400;letter-spacing:0">Solar the way it should be.</p>
+    </div>
+    <nav class="foot-col" aria-label="Pages">
+      <p class="foot-h">Pages</p>
+      <a href="/about">About</a>
+      <a href="/testimonials">Testimonials</a>
+      <a href="/faq">FAQ</a>
+      <a href="/contact">Contact</a>
+    </nav>
+    <div class="foot-col">
+      <p class="foot-h">Service area</p>
+      <span>Florida</span><span>Texas</span><span>California</span>
+    </div>
+    <div class="foot-col">
+      <p class="foot-h">Start</p>
+      <a href="/#quote">See my estimate</a>
+      <a href="/#terms">Read the terms</a>
+    </div>
+  </div>
+  <div class="foot-mark" aria-hidden="true">Solaris</div>
+</footer>
+
+</div>
+</x-dc>
+
+<script>
+/* Solaris faq: shared page behaviours (nav, menus, reveals, anchors) */
+(function () {
+  var PI = 0.14, WIPE = 0.42;
+  var reduce = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var hasST = !!(window.CSS && CSS.supports && CSS.supports('animation-timeline', 'view()'));
+  var hasIO = 'IntersectionObserver' in window;
+
+  var listeners = [], moRoots = [], tries = 0, queued = 0;
+  function roots() {
+    var r = [document], x = document.querySelector('x-dc');
+    if (x && x.shadowRoot) r.push(x.shadowRoot);
+    return r;
+  }
+  function runAll() { queued = 0; for (var i = 0; i < listeners.length; i++) listeners[i](); }
+  function queue() { if (!queued) queued = requestAnimationFrame(runAll); }
+  function attach() {
+    roots().forEach(function (r) {
+      if (moRoots.indexOf(r) > -1 || !window.MutationObserver) return;
+      moRoots.push(r);
+      new MutationObserver(queue).observe(r === document ? document.documentElement : r, { childList: true, subtree: true });
+    });
+    queue();
+    if (++tries < 40 && moRoots.length < 2) setTimeout(attach, 250);
+  }
+  function onDom(fn) { listeners.push(fn); fn(); if (listeners.length === 1) attach(); }
+  function qa(sel) {
+    var out = [];
+    roots().forEach(function (r) { out.push.apply(out, r.querySelectorAll(sel)); });
+    return out;
+  }
+  function clamp(v, a, b) { return Math.min(b, Math.max(a, v)); }
+  function wipeEase(t) { return -(Math.cos(Math.PI * t) - 1) / 2; }
+  function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+
+  function setMode() {}
+  function schedule() {}
+  
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', function () { setMode(); schedule(); });
+  window.addEventListener('load', function () { setMode(); schedule(); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { setMode(); schedule(); });
+
+  /* in-page links: shadow-DOM safe smooth scroll */
+  document.addEventListener('click', function (ev) {
+    if (ev.defaultPrevented || ev.button) return;
+    var path = ev.composedPath ? ev.composedPath() : [ev.target], a = null, i;
+    for (i = 0; i < path.length; i++) { if (path[i] && path[i].tagName === 'A') { a = path[i]; break; } }
+    if (!a) return;
+    var h = a.getAttribute('href');
+    if (!h || h.charAt(0) !== '#' || h.length < 2) return;
+    var id = h.slice(1), el = null, rs = roots();
+    for (i = 0; i < rs.length && !el; i++) { el = rs[i].getElementById ? rs[i].getElementById(id) : null; }
+    if (!el) return;
+    ev.preventDefault();
+    var far = Math.abs(el.getBoundingClientRect().top) > window.innerHeight * 1.5;
+    el.scrollIntoView({ behavior: (reduce || far) ? 'auto' : 'smooth', block: 'start' });
+    var d = a.closest ? a.closest('details') : null;
+    if (d) d.removeAttribute('open');
+  }, true);
+
+  /* nav dropdowns: one open at a time, close on outside click or Escape */
+  document.addEventListener('toggle', function (ev) {
+    var d = ev.target;
+    if (!d || !d.classList || !d.classList.contains('dd') || !d.open) return;
+    qa('.dd[open]').forEach(function (o) { if (o !== d) o.removeAttribute('open'); });
+  }, true);
+  document.addEventListener('click', function (ev) {
+    var path = ev.composedPath ? ev.composedPath() : [ev.target];
+    qa('.dd[open]').forEach(function (o) { if (path.indexOf(o) < 0) o.removeAttribute('open'); });
+  });
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key !== 'Escape') return;
+    qa('.dd[open]').forEach(function (o) { o.removeAttribute('open'); var sm = o.querySelector('summary'); if (sm) sm.focus(); });
+  });
+
+  /* buttons: label rolls up and a duplicate rolls in on hover and focus */
+  function rollify(host, label) {
+    var r = document.createElement('span');
+    r.className = 'roll';
+    var a = document.createElement('i'), b = document.createElement('i');
+    a.textContent = label; b.textContent = label; b.setAttribute('aria-hidden', 'true');
+    r.appendChild(a); r.appendChild(b);
+    return r;
+  }
+  onDom(function () {
+    var v = qa('#fq-v')[0], pp = qa('#fq-pp')[0];
+    if (!v || !pp || pp.getAttribute('data-v')) return;
+    pp.setAttribute('data-v', '1');
+    var userPaused = false;
+    function ui() { var p = v.paused; pp.setAttribute('aria-pressed', p ? 'true' : 'false'); pp.setAttribute('aria-label', p ? 'Play video' : 'Pause video'); }
+    function play() { var r = v.play(); if (r && r.catch) r.catch(function () {}); }
+    pp.addEventListener('click', function () { if (v.paused) { userPaused = false; play(); } else { userPaused = true; v.pause(); } ui(); });
+    v.addEventListener('play', ui); v.addEventListener('pause', ui);
+    var FADE = 0.55, fading = false, raf = 0;
+    function watch() {
+      cancelAnimationFrame(raf);
+      if (v.paused || v.ended) return;
+      if (v.duration && v.duration - v.currentTime <= FADE && !fading) { fading = true; v.classList.add('out'); }
+      raf = requestAnimationFrame(watch);
+    }
+    function restart() {
+      v.currentTime = 0;
+      var done = function () { v.removeEventListener('seeked', done); fading = false; v.classList.remove('out'); play(); };
+      v.addEventListener('seeked', done);
+    }
+    v.addEventListener('play', function () { if (v.currentTime < 0.3) { fading = false; v.classList.remove('out'); } watch(); });
+    v.addEventListener('ended', function () { if (userPaused) return; restart(); });
+    v.addEventListener('pause', function () { if (!v.ended && fading) { fading = false; v.classList.remove('out'); } });
+    var rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)');
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting && !userPaused && !(rm && rm.matches)) play(); else v.pause();
+        });
+      }, { threshold: 0.25 }).observe(v);
+    } else if (!(rm && rm.matches)) { play(); }
+    ui();
+  });
+
+  onDom(function () {
+    qa('a.btn:not([data-rl]),.btn:not([data-rl]),.bar-r:not([data-rl]),.pnl a:not([data-rl]),.dd summary:not([data-rl]),.fq-nav a:not([data-rl])').forEach(function (el) {
+      el.setAttribute('data-rl', '1');
+      var kids = [].slice.call(el.childNodes);
+      kids.forEach(function (n) {
+        if (n.nodeType === 3) {
+          var t = n.textContent.trim();
+          if (t) el.replaceChild(rollify(el, t), n);
+        } else if (n.nodeType === 1 && n.tagName === 'SPAN' && !n.children.length) {
+          var t2 = n.textContent.trim();
+          if (t2) { n.textContent = ''; n.appendChild(rollify(n, t2)); }
+        }
+      });
+    });
+  });
+
+  /* nav bar: hidden while scrolling down, revealed on scroll up */
+  var lastY = window.pageYOffset || 0;
+  window.addEventListener('scroll', function () {
+    var y = window.pageYOffset || 0, d = y - lastY;
+    if (Math.abs(d) < 6) return;
+    lastY = y;
+    var nav = qa('.nav')[0];
+    if (!nav) return;
+    var hide = d > 0 && y > 10;
+    if (hide && nav.matches && nav.matches(':focus-within')) return;
+    if (hide !== nav.classList.contains('hide')) {
+      nav.classList.toggle('hide', hide);
+      if (hide) qa('.dd[open]').forEach(function (o) { o.removeAttribute('open'); });
+    }
+  }, { passive: true });
+
+  /* reveal fallback where CSS scroll timelines are unavailable */
+  if (!reduce && !hasST && hasIO) {
+    var ioR = new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); ioR.unobserve(en.target); } });
+    }, { threshold: 0.15 });
+    onDom(function () {
+      qa('.rv,.w').forEach(function (el) {
+        if (el.getAttribute('data-fb')) return;
+        el.setAttribute('data-fb', '1'); el.classList.add('fb'); ioR.observe(el);
+      });
+    });
+  }
+})();
+
+</script>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3200}}'>
+const FAQS = [
+  { g: 'Price and terms', q: 'What does Solaris cost?', a: "Our rate is customized to your home. Your monthly cost depends on your household's average energy usage, your roof's size and layout, how many panels you need, and whether you add a home battery. We build a personalized plan so you pay a predictable monthly rate that is designed to be lower than your current electric bill." },
+  { g: 'Price and terms', q: 'Is there a loan or a lien on my home?', a: 'No. Solaris is a subscription. There is no loan and no lien on your home.' },
+  { g: 'Price and terms', q: 'What if a month produces less than promised?', a: 'If a month produces less than 90% of the estimate, that month is not charged.' },
+  { g: 'Price and terms', q: 'Can I leave before month 36?', a: "Leave any time. You pay 60% of the months remaining, removal included. Moving? Transfer to the new owner free." },
+  { g: 'Price and terms', q: 'What happens after month 36?', a: "Same schedule continues month to month. Leave with 30 days' notice, removal included." },
+  { g: 'Price and terms', q: 'What happens if I move?', a: "Moving is simple and hassle-free. In most cases, you can transfer your subscription to the new homeowner at no extra cost, making it an attractive selling feature for your house. If you're staying local, we can help relocate the system to your new home. If neither option works for your situation, our flexible cancellation policy ensures a smooth, guided transition every step of the way." },
+  { g: 'Equipment and service', q: 'Who maintains the system?', a: 'We do. Maintenance and equipment updates are part of the subscription, so the equipment on your roof does not age out.' },
+  { g: 'Equipment and service', q: 'Do I need to buy extra insurance for the solar panels?', a: "No. Because we own the equipment during your subscription, we cover all insurance for it. That includes full protection against damage, theft, and equipment failures. If anything breaks, our team repairs or replaces it for free so you never have to worry about unexpected costs." },
+  { g: 'Equipment and service', q: 'What does installation involve?', a: 'Installation is part of the subscription. [Typical install timeline and permit handling]' },
+  { g: 'Equipment and service', q: 'What if my roof needs repairs?', a: "If repairs are needed before installation, we recommend fixing your roof first so your solar system starts on a solid foundation. If roof issues pop up after your system is installed, our team will assess the damage and coordinate removing and reinstalling the equipment for you." },
+  { g: 'Equipment and service', q: 'Can I add a battery?', a: 'Yes. A whole-home battery is available with any plan, and it sits inside the same monthly subscription. [Battery capacity and backup details]' },
+  { g: 'Eligibility', q: 'Where is Solaris available?', a: 'Florida, Texas and California. Start an estimate to confirm your address is eligible.' },
+  { g: 'Eligibility', q: 'Do I need to own my home?', a: 'Yes. Solaris installs on homes you own.' },
+  { g: 'Eligibility', q: 'I already have solar panels. Can I still get a quote?', a: '[Existing solar policy]' }
+];
+
+class Component extends DCLogic {
+  renderVals() {
+    const open = this.state && this.state.open !== undefined ? this.state.open : 0;
+    const faqs = FAQS.map((f, i) => ({
+      q: f.q,
+      a: f.a,
+      group: f.g,
+      gid: f.g === 'Price and terms' ? 'price' : f.g === 'Equipment and service' ? 'equipment' : 'eligibility',
+      groupStart: i === 0 || FAQS[i - 1].g !== f.g,
+      open: open === i,
+      openS: open === i ? '1' : '0',
+      rot: open === i ? 'rotate(180deg)' : 'rotate(0deg)',
+      toggle: () => this.setState({ open: open === i ? -1 : i })
+    }));
+    return { faqs };
+  }
+}
+</script>
+</body>
+</html>
