@@ -447,7 +447,15 @@ textarea.ct-f{min-height:176px;padding-top:30px;resize:vertical}
     queue();
     if (++tries < 40 && moRoots.length < 2) setTimeout(attach, 250);
   }
-  function onDom(fn) { listeners.push(fn); fn(); if (listeners.length === 1) attach(); }
+  function onDom(fn) {
+    listeners.push(fn);
+    /* wait for dc-lite to mount #dc-root, otherwise we tag/observe the template nodes it discards */
+    if (document.readyState === 'loading') {
+      if (listeners.length === 1) document.addEventListener('DOMContentLoaded', attach);
+      return;
+    }
+    fn(); if (listeners.length === 1) attach();
+  }
   function qa(sel) {
     var out = [];
     roots().forEach(function (r) { out.push.apply(out, r.querySelectorAll(sel)); });
