@@ -228,7 +228,7 @@ input[type=range]{width:100%;height:44px;accent-color:var(--ink);cursor:pointer}
 .sched-lead{font-size:16px;line-height:1.45;color:var(--muted);margin-top:-8px}
 .sched-save{display:flex;flex-wrap:wrap;gap:14px 44px}
 .sched-save>div{display:flex;flex-direction:column;gap:6px}
-.sched-save b{font-size:clamp(38px,4.4vw,56px);line-height:1;letter-spacing:-.05em;font-weight:600;color:var(--teal)}
+.sched-save b{font-size:clamp(36px,4vw,52px);line-height:1.05;letter-spacing:-.01em;font-weight:600;color:var(--teal)}
 .sched-save span{font-size:15px;line-height:1.35;color:var(--muted);font-weight:500;max-width:15em}
 .sched-rows{display:flex;flex-direction:column}
 .sr{display:grid;grid-template-columns:60px minmax(0,1fr) auto;align-items:center;gap:14px;min-height:44px;font-size:16px;font-variant-numeric:tabular-nums}
@@ -246,7 +246,7 @@ input[type=range]{width:100%;height:44px;accent-color:var(--ink);cursor:pointer}
 .sched-more em{margin-left:auto;font-style:normal;font-weight:500;color:var(--muted);font-size:15px}
 .sched-more svg{flex:none;transition:transform .2s var(--ease)}
 .sched-more[aria-expanded="true"] svg{transform:rotate(180deg)}
-@media (max-width:520px){.sched{padding:20px}.sched-save{display:grid;grid-template-columns:1fr 1fr;gap:12px}.sched-save b{font-size:36px}.sched-save span{font-size:14px}.sr{grid-template-columns:52px minmax(0,1fr) auto;gap:10px}.sched-more em{display:none}}
+@media (max-width:520px){.sched{padding:20px}.sched-save{display:grid;grid-template-columns:1fr 1fr;gap:12px}.sched-save b{font-size:34px}.sched-save span{font-size:14px}.sr{grid-template-columns:52px minmax(0,1fr) auto;gap:10px}.sched-more em{display:none}}
 @media (prefers-reduced-motion:reduce){.sr-b,.sched-more svg{transition:none}}
 .guar{display:flex;gap:18px;align-items:center;padding:22px 24px;background:var(--sun);border-radius:24px}
 .guar b{font-size:clamp(44px,5vw,64px);line-height:.9;letter-spacing:-.05em;font-weight:600}
@@ -632,13 +632,13 @@ input[type=range]{width:100%;height:44px;accent-color:var(--ink);cursor:pointer}
             <span class="plan-n">Solar</span>
             <span class="plan-p num">{{solarPrice}}<small> a month</small></span>
             <span class="plan-s">36-month term. Rises 1.9% each year.</span>
-            <span class="plan-d">Installation, maintenance and equipment updates. System size [kW].</span>
+            <span class="plan-d">Installation, maintenance and equipment updates.</span>
           </button>
           <button type="button" aria-pressed="{{batteryOn}}" onClick="{{pickBattery}}" class="tile plan"><span class="tick" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>
             <span class="plan-n">Solar + battery</span>
             <span class="plan-p num">{{batteryPrice}}<small> a month</small></span>
             <span class="plan-s">36-month term. Rises 1.9% each year.</span>
-            <span class="plan-d">Everything in Solar, plus a whole-home battery. Battery size [kWh].</span>
+            <span class="plan-d">Everything in Solar, plus a whole-home battery.</span>
           </button>
         </div>
 
