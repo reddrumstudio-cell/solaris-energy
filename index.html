@@ -221,6 +221,38 @@ input[type=range]{width:100%;height:44px;accent-color:var(--ink);cursor:pointer}
 .plan-p small{font-size:17px;letter-spacing:0;font-weight:500;color:var(--muted)}
 .plan-s{font-size:15px;line-height:1.45;color:var(--muted);font-weight:500;letter-spacing:0}
 .plan-d{font-size:16px;line-height:1.45;font-weight:500;letter-spacing:0}
+/* payment schedule */
+.sched{display:flex;flex-direction:column;gap:18px;padding:24px;border:2px solid var(--hair);border-radius:24px}
+.sched-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 20px}
+.sched h3{font-size:20px;line-height:1.2;letter-spacing:-.02em;font-weight:600}
+.sched-lead{font-size:16px;line-height:1.45;color:var(--muted);margin-top:-8px}
+.seg{display:inline-flex;padding:4px;gap:4px;border:2px solid var(--hair);border-radius:999px}
+.seg button{min-height:40px;padding:0 18px;border:0;border-radius:999px;background:transparent;font:600 15px/1 var(--font);color:var(--ink);cursor:pointer;transition:background-color .2s ease,color .2s ease,transform .16s var(--ease)}
+.seg button:active{transform:scale(.97)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--cream)}
+.sched-rows{display:flex;flex-direction:column}
+.sr{display:grid;grid-template-columns:60px minmax(0,1fr) auto;align-items:center;gap:14px;min-height:44px;font-size:16px;font-variant-numeric:tabular-nums}
+.sr-y{color:var(--muted);font-weight:500}
+.sr-v{font-weight:600;text-align:right;min-width:3.4em}
+.sr-v small{font-size:14px;font-weight:500;color:var(--muted)}
+.sr-t{position:relative;height:14px;border-radius:999px;background:var(--cream);overflow:hidden}
+.sr-b{position:absolute;inset:0;border-radius:inherit;background:var(--sun);transform-origin:0 50%;transition:transform .35s var(--ease)}
+.sr[data-p="after"] .sr-b{background:var(--teal)}
+.sr-k{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);opacity:.55;border-radius:1px}
+.sched-term{display:flex;align-items:center;gap:12px;margin:6px 0;font-size:14px;font-weight:600;color:var(--teal);letter-spacing:.01em}
+.sched-term:before,.sched-term:after{content:"";flex:1;height:1px;background:var(--hair)}
+.sched-key{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--muted)}
+.sched-key span{display:inline-flex;align-items:center;gap:8px}
+.sched-key i{display:inline-block;width:2px;height:14px;background:var(--ink);opacity:.55;border-radius:1px}
+.sched-more{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;min-height:52px;padding:0 20px;border:2px solid var(--hair);border-radius:999px;background:transparent;font:600 16px/1.2 var(--font);color:var(--ink);text-align:left;cursor:pointer;transition:border-color .2s ease,transform .16s var(--ease)}
+.sched-more:hover{border-color:var(--ink)}
+.sched-more:active{transform:scale(.99)}
+.sched-more em{margin-left:auto;font-style:normal;font-weight:500;color:var(--muted);font-size:15px}
+.sched-more svg{flex:none;transition:transform .2s var(--ease)}
+.sched-more[aria-expanded="true"] svg{transform:rotate(180deg)}
+.sched-fine{font-size:14px;line-height:1.45;color:var(--muted)}
+@media (max-width:520px){.sched{padding:20px}.sr{grid-template-columns:52px minmax(0,1fr) auto;gap:10px}.sched-more em{display:none}.seg{width:100%}.seg button{flex:1;padding:0 8px}}
+@media (prefers-reduced-motion:reduce){.sr-b,.sched-more svg{transition:none}}
 .guar{display:flex;gap:18px;align-items:center;padding:22px 24px;background:var(--sun);border-radius:24px}
 .guar b{font-size:clamp(44px,5vw,64px);line-height:.9;letter-spacing:-.05em;font-weight:600}
 .guar p{font-size:16px;line-height:1.4;font-weight:500}
@@ -603,17 +635,42 @@ input[type=range]{width:100%;height:44px;accent-color:var(--ink);cursor:pointer}
         <div class="plans">
           <button type="button" aria-pressed="{{solarOn}}" onClick="{{pickSolar}}" class="tile plan"><span class="tick" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>
             <span class="plan-n">Solar</span>
-            <span class="plan-p num">$[quote]<small> a month</small></span>
+            <span class="plan-p num">{{solarPrice}}<small> a month</small></span>
             <span class="plan-s">36-month term. Rises 1.9% each year.</span>
             <span class="plan-d">Installation, maintenance and equipment updates. System size [kW].</span>
           </button>
           <button type="button" aria-pressed="{{batteryOn}}" onClick="{{pickBattery}}" class="tile plan"><span class="tick" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>
             <span class="plan-n">Solar + battery</span>
-            <span class="plan-p num">$[quote]<small> a month</small></span>
+            <span class="plan-p num">{{batteryPrice}}<small> a month</small></span>
             <span class="plan-s">36-month term. Rises 1.9% each year.</span>
             <span class="plan-d">Everything in Solar, plus a whole-home battery. Battery size [kWh].</span>
           </button>
         </div>
+
+        <section class="sched" aria-labelledby="sched-h">
+          <div class="sched-top">
+            <h3 id="sched-h">How your payment changes</h3>
+            <div class="seg" role="group" aria-label="Choose a plan to view">
+              <button type="button" aria-pressed="{{schedSolarOn}}" onClick="{{schedSolar}}">Solar</button>
+              <button type="button" aria-pressed="{{schedBatteryOn}}" onClick="{{schedBattery}}">Solar + battery</button>
+            </div>
+          </div>
+          <p class="sched-lead">{{schedLead}}</p>
+          <div class="sched-rows" role="list">
+            <sc-for list="{{schedNear}}" as="r" hint-placeholder-count="3">
+              <div class="sr" role="listitem" data-p="{{r.phase}}"><span class="sr-y">{{r.yr}}</span><span class="sr-t" aria-hidden="true"><span class="sr-b" style="transform:scaleX({{r.scale}})"></span><span class="sr-k" style="left:{{billPos}}"></span></span><span class="sr-v">{{r.price}}<small> /mo</small></span></div>
+            </sc-for>
+            <div class="sched-term" role="listitem">Month 36 · initial term ends</div>
+            <sc-if value="{{schedOpen}}" hint-placeholder-val="{{false}}">
+            <sc-for list="{{schedFar}}" as="r" hint-placeholder-count="3">
+              <div class="sr" role="listitem" data-p="{{r.phase}}"><span class="sr-y">{{r.yr}}</span><span class="sr-t" aria-hidden="true"><span class="sr-b" style="transform:scaleX({{r.scale}})"></span><span class="sr-k" style="left:{{billPos}}"></span></span><span class="sr-v">{{r.price}}<small> /mo</small></span></div>
+            </sc-for>
+            </sc-if>
+          </div>
+          <button class="sched-more" type="button" aria-expanded="{{schedOpen}}" onClick="{{toggleSched}}"><span>{{schedBtn}}</span><em>{{schedFarRange}}</em><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+          <div class="sched-key"><span><i aria-hidden="true"></i>Your bill today, {{billNow}}</span></div>
+          <p class="sched-fine">Rises 1.9% each year, rounded to the nearest dollar. Your exact rate comes with your estimate.</p>
+        </section>
 
         <div class="guar">
           <b class="num">90%</b>
@@ -1169,7 +1226,7 @@ input[type=range]{width:100%;height:44px;accent-color:var(--ink);cursor:pointer}
 </script>
 
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":16400}}'>
-const DEFAULTS = { step: 1, homeowner: '', homeType: '', hasSolar: '', returnTo: false, outArea: false, waitEmail: '', waitSent: false, waitError: '', zip: '', zipError: '', utility: '', utilityError: '', bill: 180, plan: '', first: '', last: '', email: '', phone: '', errors: {}, done: false, sending: false };
+const DEFAULTS = { step: 1, homeowner: '', homeType: '', hasSolar: '', returnTo: false, outArea: false, waitEmail: '', waitSent: false, waitError: '', zip: '', zipError: '', utility: '', utilityError: '', bill: 180, plan: '', schedPlan: '', schedOpen: false, first: '', last: '', email: '', phone: '', errors: {}, done: false, sending: false };
 
 const REGIONS = [
   { name: 'Florida', test: (n) => n >= 320 && n <= 349, utilities: ['Florida Power & Light', 'Duke Energy Florida', 'Tampa Electric', 'Orlando Utilities Commission', 'JEA', 'Other or not sure'] },
@@ -1271,6 +1328,17 @@ class Component extends DCLogic {
     };
     const planNames = s.plan === 'both' ? 'Solar and Solar + battery' : s.plan === 'battery' ? 'Solar + battery' : s.plan === 'solar' ? 'Solar' : '';
     const planLine = planNames ? 'Estimate for: ' + planNames : 'No plan chosen yet. We will send both estimates.';
+    /* illustrative pricing until real rates are wired in: scales with the bill, 1.9% yearly step */
+    const billN = Number(s.bill) || 180;
+    const startS = Math.round(billN * 0.88), startB = startS + Math.round(billN * 0.1);
+    const price = (b, i) => Math.round(b * Math.pow(1.019, i));
+    const sp = s.schedPlan || (s.plan === 'battery' ? 'battery' : 'solar');
+    const st = sp === 'battery' ? startB : startS;
+    const scaleMax = Math.max(price(startB, 9), billN) * 1.04;
+    const schedRows = Array.from({ length: 10 }, (_, i) => ({ yr: 'Year ' + (i + 1), price: '$' + price(st, i), scale: (price(st, i) / scaleMax).toFixed(3), phase: i < 3 ? 'term' : 'after' }));
+    const billPos = (billN / scaleMax * 100).toFixed(2) + '%';
+    const gap = billN - st;
+    const schedLead = 'Starts at $' + st + ' a month, ' + (gap > 0 ? '$' + gap + ' less than' : gap < 0 ? '$' + (-gap) + ' more than' : 'the same as') + ' your current bill.';
     const summaryParts = [s.homeType, region ? region.name : '', s.utility, s.bill ? '$' + s.bill + ' a month' : ''].filter(Boolean);
 
     /* shared by the hero ZIP and the first quote question; returns 'short' | 'out' | 'ok' */
@@ -1354,8 +1422,16 @@ class Component extends DCLogic {
       summaryLine: summaryParts.join(', '),
       solarOn: s.plan === 'solar' || s.plan === 'both',
       batteryOn: s.plan === 'battery' || s.plan === 'both',
-      pickSolar: () => { const b = s.plan === 'battery' || s.plan === 'both', a = s.plan === 'solar' || s.plan === 'both'; set({ plan: !a ? (b ? 'both' : 'solar') : (b ? 'battery' : '') }); },
-      pickBattery: () => { const b = s.plan === 'battery' || s.plan === 'both', a = s.plan === 'solar' || s.plan === 'both'; set({ plan: !b ? (a ? 'both' : 'battery') : (a ? 'solar' : '') }); },
+      pickSolar: () => { const b = s.plan === 'battery' || s.plan === 'both', a = s.plan === 'solar' || s.plan === 'both'; set({ plan: !a ? (b ? 'both' : 'solar') : (b ? 'battery' : ''), schedPlan: !a ? 'solar' : '' }); },
+      pickBattery: () => { const b = s.plan === 'battery' || s.plan === 'both', a = s.plan === 'solar' || s.plan === 'both'; set({ plan: !b ? (a ? 'both' : 'battery') : (a ? 'solar' : ''), schedPlan: !b ? 'battery' : '' }); },
+      solarPrice: '$' + startS, batteryPrice: '$' + startB,
+      schedSolarOn: sp === 'solar', schedBatteryOn: sp === 'battery',
+      schedSolar: () => set({ schedPlan: 'solar' }), schedBattery: () => set({ schedPlan: 'battery' }),
+      schedNear: schedRows.slice(0, 3), schedFar: schedRows.slice(3),
+      schedLead, schedOpen: !!s.schedOpen, toggleSched: () => set({ schedOpen: !s.schedOpen }),
+      schedBtn: s.schedOpen ? 'Hide years 4 to 10' : 'Show years 4 to 10',
+      schedFarRange: '$' + price(st, 3) + ' to $' + price(st, 9) + ' a month',
+      billPos, billNow: '$' + billN,
 
       first: s.first, last: s.last, email: s.email, phone: s.phone,
       onFirst: (e) => set({ first: e.target.value }),
