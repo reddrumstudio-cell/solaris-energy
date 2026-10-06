@@ -131,6 +131,14 @@ img,video{display:block;max-width:100%}
 }
 }
 @keyframes rise{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+@keyframes soft{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@supports (animation-timeline:view()){
+@media (prefers-reduced-motion:no-preference){
+.ct-rv{animation:soft cubic-bezier(.4,0,.2,1) both;animation-timeline:view();animation-range:entry calc(var(--i,0) * 5%) entry calc(65% + var(--i,0) * 5%)}
+}
+}
+.ct-rv.fb{transform:translateY(14px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1);transition-delay:calc(var(--i,0) * 80ms)}
+.ct-rv.fb.in{transform:none}
 .fb{opacity:0;transform:translateY(28px);transition:opacity .5s var(--ease),transform .6s var(--ease);transition-delay:calc(var(--i,0) * 50ms)}
 .fb.in{opacity:1;transform:none}
 /* close */
@@ -287,20 +295,20 @@ textarea.ct-f{min-height:176px;padding-top:30px;resize:vertical}
   <div class="wrap">
     <h2 id="inq-h" class="ct-h2 rv">Contact us</h2>
     <ul class="ct-ig">
-      <li class="ct-it rv" style="animation-range:entry calc(4% + 0%) entry calc(52% + 0%)"><h3>Sales inquiries</h3><p>A personalized plan for your home, designed to be lower than your electric bill.</p><a class="ct-lk" href="mailto:sales@solaris.energy">sales@solaris.energy<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></li>
-      <li class="ct-it rv" style="animation-range:entry calc(4% + 6%) entry calc(52% + 6%)"><h3>Customer support</h3><p>Questions about your system, your bill or your service visit.</p><a class="ct-lk" href="mailto:support@solaris.energy">support@solaris.energy<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></li>
-      <li class="ct-it rv" style="animation-range:entry calc(4% + 12%) entry calc(52% + 12%)"><h3>Plans and billing</h3><p>Changes to your plan, your rate or your payment method.</p><a class="ct-lk" href="mailto:billing@solaris.energy">billing@solaris.energy<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></li>
-      <li class="ct-it rv" style="animation-range:entry calc(4% + 0%) entry calc(52% + 0%)"><h3>Partner requests</h3><p>Builders, installers and utilities who want to work with us.</p><a class="ct-lk" href="mailto:partners@solaris.energy">partners@solaris.energy<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></li>
-      <li class="ct-it rv" style="animation-range:entry calc(4% + 6%) entry calc(52% + 6%)"><h3>Press and media</h3><p>Interviews, images and company facts for reporters.</p><a class="ct-lk" href="mailto:press@solaris.energy">press@solaris.energy<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></li>
-      <li class="ct-it rv" style="animation-range:entry calc(4% + 12%) entry calc(52% + 12%)"><h3>Career opportunities</h3><p>Join the crews and teams that put solar on homes.</p><a class="ct-lk" href="mailto:careers@solaris.energy">See open roles<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></li>
+      <li class="ct-it ct-rv" style="--i:0"><h3>Sales inquiries</h3><p>A personalized plan for your home, designed to be lower than your electric bill.</p><a class="ct-lk" href="mailto:sales@solaris.energy">sales@solaris.energy<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></li>
+      <li class="ct-it ct-rv" style="--i:1"><h3>Customer support</h3><p>Questions about your system, your bill or your service visit.</p><a class="ct-lk" href="mailto:support@solaris.energy">support@solaris.energy<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></li>
+      <li class="ct-it ct-rv" style="--i:2"><h3>Plans and billing</h3><p>Changes to your plan, your rate or your payment method.</p><a class="ct-lk" href="mailto:billing@solaris.energy">billing@solaris.energy<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></li>
+      <li class="ct-it ct-rv" style="--i:0"><h3>Partner requests</h3><p>Builders, installers and utilities who want to work with us.</p><a class="ct-lk" href="mailto:partners@solaris.energy">partners@solaris.energy<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></li>
+      <li class="ct-it ct-rv" style="--i:1"><h3>Press and media</h3><p>Interviews, images and company facts for reporters.</p><a class="ct-lk" href="mailto:press@solaris.energy">press@solaris.energy<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></li>
+      <li class="ct-it ct-rv" style="--i:2"><h3>Career opportunities</h3><p>Join the crews and teams that put solar on homes.</p><a class="ct-lk" href="mailto:careers@solaris.energy">See open roles<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg></a></li>
     </ul>
   </div>
-  <div class="wrap ct-direct rv" id="direct">
-    <h2 class="ct-bh">Reach us directly</h2>
+  <div class="wrap ct-direct" id="direct">
+    <h2 class="ct-bh ct-rv">Reach us directly</h2>
     <dl class="ct-dl">
-      <div><dt>Phone</dt><dd class="num"><a href="tel:+13215550142">(321) 555-0142</a></dd></div>
-      <div><dt>Email</dt><dd><a href="mailto:hello@solaris.energy">hello@solaris.energy</a></dd></div>
-      <div><dt>Hours</dt><dd>8 am to 7 pm ET<span>Mon to Fri. Sat 9 am to 2 pm.</span></dd></div>
+      <div class="ct-rv" style="--i:1"><dt>Phone</dt><dd class="num"><a href="tel:+13215550142">(321) 555-0142</a></dd></div>
+      <div class="ct-rv" style="--i:2"><dt>Email</dt><dd><a href="mailto:hello@solaris.energy">hello@solaris.energy</a></dd></div>
+      <div class="ct-rv" style="--i:3"><dt>Hours</dt><dd>8 am to 7 pm ET<span>Mon to Fri. Sat 9 am to 2 pm.</span></dd></div>
     </dl>
   </div>
 </section>
@@ -369,15 +377,15 @@ textarea.ct-f{min-height:176px;padding-top:30px;resize:vertical}
     </div>
   <div class="ct-ar">
     <h2 id="addr-h" class="ct-h2 rv">Our address</h2>
-    <div class="ct-ad rv">
+    <div class="ct-ad ct-rv" style="--i:0">
       <h3>Mailing address</h3>
       <p>Solaris Energy, Inc.<br>PO Box 3140<br>Melbourne, FL 32902</p>
     </div>
-    <div class="ct-ad rv">
+    <div class="ct-ad ct-rv" style="--i:1">
       <h3>Office address</h3>
       <p>Solaris Energy<br>1200 S Harbor City Blvd, Suite 210<br>Melbourne, FL 32901</p>
     </div>
-    <p class="ct-note rv">Installations are scheduled by appointment. Please write or call before visiting.</p>
+    <p class="ct-note ct-rv" style="--i:2">Installations are scheduled by appointment. Please write or call before visiting.</p>
   </div>
 </section>
 
@@ -566,7 +574,7 @@ textarea.ct-f{min-height:176px;padding-top:30px;resize:vertical}
       es.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); ioR.unobserve(en.target); } });
     }, { threshold: 0.15 });
     onDom(function () {
-      qa('.rv,.w').forEach(function (el) {
+      qa('.rv,.w,.ct-rv').forEach(function (el) {
         if (el.getAttribute('data-fb')) return;
         el.setAttribute('data-fb', '1'); el.classList.add('fb'); ioR.observe(el);
       });
